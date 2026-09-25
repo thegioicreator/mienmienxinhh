@@ -8,7 +8,7 @@
     <!-- THẺ HIỂN THỊ KHI CHIA SẺ LINK (OPEN GRAPH) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Thế Giới Creator">
-    <meta property="og:description" content="Nơi kết nối, tổng hợp các Creator Roleplay!">
+    <meta property="og:description" content="Nơi kết nối, tổng hợp danh tính và chia sẻ profile các Creator Roleplay!">
     <meta property="og:image" content="https://vkovlqgnucqhqbwzegxg.supabase.co/storage/v1/object/public/avatars/07f3a1b1-8f5b-4127-939e-8e96f28f08a1.jpg">
     <meta property="og:url" content="https://thegioicreator.github.io/">
 
@@ -227,7 +227,7 @@
             background-color: #fee2e2;
         }
 
-        /* --- SEARCH & NÚT ADD CREATOR LỚN NỔI BẬT --- */
+        /* --- SEARCH & NÚT ADD CREATOR --- */
         .search-container {
             max-width: 520px;
             margin: 0 auto 22px auto;
@@ -250,7 +250,7 @@
             box-shadow: 0 0 0 4px rgba(255, 143, 163, 0.25);
         }
 
-        /* NÚT ADD CREATOR ĐƯỢC LÀM LỚN VÀ NỔI BẬT */
+        /* NÚT CHÍNH NỔI BẬT (KHÔNG CHỨA ICON KHI Ở TRẠNG THÁI SỬA) */
         .btn-create-main {
             background: linear-gradient(135deg, #ff4d6d 0%, #ff8fa3 100%);
             color: white;
@@ -265,7 +265,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             letter-spacing: 0.5px;
         }
 
@@ -289,20 +289,21 @@
             margin: 0 auto;
         }
 
-        /* CARD HÌNH CHỮ NHẬT HÀI HÒA & ĐẦY ĐỦ THÔNG TIN */
+        /* CARD HÌNH CHỮ NHẬT CÓ CỐ ĐỊNH CHIỀU CAO */
         .creator-card-summary {
-            min-height: 420px;
+            height: 420px;
             border-radius: 24px;
             border: 1px solid var(--border-pink);
             box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            padding: 18px;
+            padding: 16px;
             cursor: pointer;
             position: relative;
             user-select: none;
             background-color: var(--card-pink-default);
+            overflow: hidden;
         }
 
         .creator-card-summary:hover {
@@ -340,7 +341,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Menu thả xuống khi bấm nút 3 chấm */
+        /* Menu thả xuống của nút 3 chấm */
         .card-dropdown-menu {
             display: none;
             position: absolute;
@@ -373,23 +374,31 @@
             color: var(--dark-pink);
         }
 
-        /* AVATAR DẠNG HÌNH CHỮ NHẬT */
+        /* AVATAR DẠNG HÌNH CHỮ NHẬT CHIẾM DÚNG 2/4 (50%) KÍCH THƯỚC CARD - KHÔNG CÓ CHỮ */
         .card-avatar-summary {
             width: 100%;
-            height: 180px;
+            height: 50%; /* Chiếm 2/4 kích thước card */
             border-radius: 16px;
             object-fit: cover;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             flex-shrink: 0;
         }
 
+        /* Phần thông tin còn lại trong 2/4 chiều cao còn lại */
+        .card-info-wrapper {
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .card-name-summary {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--dark-pink);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             width: 100%;
             white-space: nowrap;
             overflow: hidden;
@@ -397,9 +406,9 @@
         }
 
         .card-bio-summary {
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--text-dark);
-            line-height: 1.5;
+            line-height: 1.4;
             width: 100%;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -407,31 +416,32 @@
             overflow: hidden;
             text-overflow: ellipsis;
             word-break: break-word;
-            margin-bottom: 14px;
-            flex: 1;
+            margin-bottom: 8px;
         }
 
-        /* Danh sách thông tin liên hệ hiển thị trực tiếp trên Card */
+        /* Contacts hiển thị icon + tên */
         .card-contacts-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 8px;
             border-top: 1px dashed rgba(255, 143, 163, 0.4);
+            max-height: 65px;
+            overflow: hidden;
         }
 
         .card-contact-chip {
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--border-pink);
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 11.5px;
             font-weight: 600;
             color: var(--dark-pink);
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             text-decoration: none;
             transition: all 0.2s;
         }
@@ -534,7 +544,7 @@
             min-height: 110px;
         }
 
-        /* Preview Avatar Hình Chữ Nhật Trong Form */
+        /* Preview Avatar Trong Form */
         .img-preview-box-rect {
             width: 100%;
             max-width: 320px;
@@ -606,7 +616,7 @@
             cursor: pointer;
         }
 
-        /* --- HỘP HASHTAG CHIPS --- */
+        /* --- HASHTAG CHIPS --- */
         .genre-box-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -840,10 +850,8 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm theo Tên Creator hoặc Thể loại..." oninput="handleSearch()">
         </div>
 
-        <!-- NÚT ADD CREATOR RẤT NỔI BẬT -->
-        <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">
-            <span>✨</span> Add Creator
-        </button>
+        <!-- NÚT CHÍNH: KHÔNG CÓ ICON KHI ĐỔI SANG "SỬA CARD CREATOR" -->
+        <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">Add Creator</button>
     </header>
 
     <main>
@@ -1176,10 +1184,11 @@
 
             const btnMain = document.getElementById('btnMainAddCreator');
             if (myCreatorCard) {
-                btnMain.innerHTML = `<span>✏️</span> Sửa Card Creator`;
+                // KHÔNG CÓ ICON
+                btnMain.innerHTML = `Sửa Card Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(myCreatorCard.name);
             } else {
-                btnMain.innerHTML = `<span>✨</span> Add Creator`;
+                btnMain.innerHTML = `Add Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(currentUser.email);
             }
         }
@@ -1211,14 +1220,13 @@
             });
         }
 
-        // TẠO CARD CREATOR HÌNH CHỮ NHẬT TỔNG THỂ VỚI NÚT 3 CHẤM & LINK LIÊN HỆ
+        // TẠO CARD CREATOR VỚI AVATAR CHIẾM 2/4 CHIỀU CAO (KHÔNG CHỮ)
         function createSummaryCardElement(creator) {
             const card = document.createElement('div');
             card.className = 'creator-card-summary';
             card.style.backgroundColor = creator.card_color || '#ffffff';
             card.onclick = () => openCreatorDetailModal(creator.id);
 
-            // Bổ sung danh sách Contact Badges trên Card
             let contactsArr = [];
             try { contactsArr = JSON.parse(creator.contacts || '[]'); } catch(e){}
 
@@ -1228,7 +1236,6 @@
                 </a>
             `).join('');
 
-            // Bổ sung Items trong Menu 3 chấm
             let contactsMenuItemsHtml = contactsArr.map(c => `
                 <a class="card-dropdown-item" href="${c.url}" target="_blank" onclick="event.stopPropagation();">
                     ${getPlatformIcon(c.platform)} Mở ${c.label}
@@ -1239,7 +1246,7 @@
                 <!-- Nút 3 chấm trên Card -->
                 <div class="card-more-btn" onclick="toggleCardMoreMenu(event, '${creator.id}')">⋮</div>
 
-                <!-- Menu Thả Xuống của nút 3 chấm -->
+                <!-- Menu Thả Xuống nút 3 chấm -->
                 <div class="card-dropdown-menu" id="cardDropdown-${creator.id}">
                     <div class="card-dropdown-item" onclick="shareCreatorDirect(event, '${creator.id}')">
                         <span>🔗</span> Chia sẻ Profile
@@ -1247,18 +1254,19 @@
                     ${contactsMenuItemsHtml}
                 </div>
 
-                <!-- Avatar Hình Chữ Nhật -->
+                <!-- Avatar Hình Chữ Nhật Chiếm đúng 2/4 chiều cao - Hoàn toàn không chứa chữ -->
                 <img class="card-avatar-summary" src="${creator.avatar_url}" alt="${creator.name}">
 
-                <!-- Tên Creator -->
-                <div class="card-name-summary">${creator.name}</div>
+                <!-- Phần Thông Tin Chiếm 2/4 Còn Lại -->
+                <div class="card-info-wrapper">
+                    <div>
+                        <div class="card-name-summary">${creator.name}</div>
+                        <div class="card-bio-summary">${creator.bio || 'Chưa có lời giới thiệu'}</div>
+                    </div>
 
-                <!-- Bio Short -->
-                <div class="card-bio-summary">${creator.bio || 'Chưa có lời giới thiệu'}</div>
-
-                <!-- Thông tin liên hệ hiển thị Tên + Icon -->
-                <div class="card-contacts-wrapper">
-                    ${contactsBadgesHtml || '<span style="font-size:11px; color:var(--text-muted);">Chưa gắn link liên hệ</span>'}
+                    <div class="card-contacts-wrapper">
+                        ${contactsBadgesHtml || '<span style="font-size:11px; color:var(--text-muted);">Chưa gắn link liên hệ</span>'}
+                    </div>
                 </div>
             `;
             return card;
@@ -1267,7 +1275,6 @@
         // MENU 3 CHẤM
         function toggleCardMoreMenu(e, id) {
             e.stopPropagation();
-            // Đóng các menu 3 chấm khác
             document.querySelectorAll('.card-dropdown-menu').forEach(m => {
                 if (m.id !== `cardDropdown-${id}`) m.style.display = 'none';
             });
