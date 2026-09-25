@@ -10,7 +10,7 @@
     <meta property="og:title" content="Thế Giới Creator">
     <meta property="og:description" content="Nơi kết nối, tổng hợp danh tính và chia sẻ profile các Creator Roleplay!">
     <meta property="og:image" content="https://vkovlqgnucqhqbwzegxg.supabase.co/storage/v1/object/public/avatars/07f3a1b1-8f5b-4127-939e-8e96f28f08a1.jpg">
-    <meta property="og:url" content="https://thegioicreator.github.io/mienmienxinhh">
+    <meta property="og:url" content="https://thegioicreator.github.io/">
 
     <!-- Supabase JS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -20,14 +20,14 @@
             --bg-main: #fff5f7;
             --primary-pink: #ff8fa3;
             --light-pink: #ffe6ea;
-            --card-pink-default: #fff0f3;
+            --card-pink-default: #ffffff;
             --dark-pink: #ff4d6d;
             --deep-pink: #c9184a;
-            --text-dark: #2b2b2b;
-            --text-muted: #718096;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
             --border-pink: #fbcfe8;
-            --grey-btn: #e2e8f0;
-            --grey-icon: #64748b;
+            --grey-btn: #f1f5f9;
+            --grey-icon: #475569;
         }
 
         * {
@@ -40,7 +40,7 @@
         body {
             background-color: var(--bg-main);
             color: var(--text-dark);
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
         /* --- TOAST NOTIFICATION --- */
@@ -139,30 +139,31 @@
         /* --- HEADER & USER MENU --- */
         header {
             background-color: white;
-            padding: 22px 20px;
+            padding: 25px 20px 30px 20px;
             text-align: center;
             border-bottom: 2px solid var(--light-pink);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(255, 143, 163, 0.08);
             position: relative;
         }
 
         h1 {
             color: var(--dark-pink);
-            font-size: 26px;
-            margin-bottom: 15px;
-            font-weight: 800;
+            font-size: 28px;
+            margin-bottom: 18px;
+            font-weight: 900;
             padding: 0 45px;
+            letter-spacing: -0.5px;
         }
 
         .user-profile-bar {
             position: absolute;
-            top: 18px;
+            top: 20px;
             right: 20px;
         }
 
         .user-avatar-btn {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background-color: var(--card-pink-default);
             border: 2px solid var(--border-pink);
@@ -173,7 +174,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(255, 143, 163, 0.25);
+            box-shadow: 0 4px 12px rgba(255, 143, 163, 0.25);
             transition: all 0.2s ease;
             text-transform: uppercase;
             user-select: none;
@@ -185,11 +186,10 @@
             border-color: var(--primary-pink);
         }
 
-        /* Menu thả xuống khi bấm Avatar */
         .user-dropdown-menu {
             display: none;
             position: absolute;
-            top: 50px;
+            top: 52px;
             right: 0;
             background: white;
             border: 1px solid var(--border-pink);
@@ -227,18 +227,18 @@
             background-color: #fee2e2;
         }
 
-        /* --- SEARCH & BUTTON MAIN --- */
+        /* --- SEARCH & NÚT ADD CREATOR LỚN NỔI BẬT --- */
         .search-container {
-            max-width: 500px;
-            margin: 0 auto 18px auto;
+            max-width: 520px;
+            margin: 0 auto 22px auto;
             position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 12px 20px;
+            padding: 14px 22px;
             border: 2px solid var(--primary-pink);
-            border-radius: 25px;
+            border-radius: 30px;
             outline: none;
             font-size: 15px;
             background: var(--bg-main);
@@ -247,82 +247,149 @@
 
         .search-input:focus {
             background: white;
-            box-shadow: 0 0 0 4px rgba(255, 143, 163, 0.2);
+            box-shadow: 0 0 0 4px rgba(255, 143, 163, 0.25);
         }
 
+        /* NÚT ADD CREATOR ĐƯỢC LÀM LỚN VÀ NỔI BẬT */
         .btn-create-main {
-            background: linear-gradient(135deg, #ff8fa3, #ff4d6d);
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff8fa3 100%);
             color: white;
             border: none;
-            padding: 14px 40px;
-            font-size: 16px;
+            padding: 16px 45px;
+            font-size: 18px;
             font-weight: 800;
-            border-radius: 35px;
+            border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.35);
-            transition: all 0.25s ease;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.45);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: 0.5px;
         }
 
         .btn-create-main:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.45);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 14px 30px rgba(255, 77, 109, 0.6);
+            background: linear-gradient(135deg, #ff2a55 0%, #ff758f 100%);
+        }
+
+        .btn-create-main:active {
+            transform: translateY(1px) scale(0.98);
         }
 
         /* --- GRID CARD CREATOR TRANG CHỦ --- */
         .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 22px;
-            padding: 30px 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 28px;
+            padding: 35px 20px;
+            max-width: 1280px;
             margin: 0 auto;
         }
 
-        /* Card cố định kích thước đồng nhất ngoài trang chủ */
+        /* CARD HÌNH CHỮ NHẬT HÀI HÒA & ĐẦY ĐỦ THÔNG TIN */
         .creator-card-summary {
-            height: 250px;
-            border-radius: 22px;
+            min-height: 420px;
+            border-radius: 24px;
             border: 1px solid var(--border-pink);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 22px 18px;
+            padding: 18px;
             cursor: pointer;
             position: relative;
             user-select: none;
-            overflow: hidden;
             background-color: var(--card-pink-default);
         }
 
         .creator-card-summary:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(255, 143, 163, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 35px rgba(255, 143, 163, 0.28);
             border-color: var(--primary-pink);
         }
 
-        .card-avatar-summary {
-            width: 90px;
-            height: 90px;
+        /* Nút 3 chấm trên Card */
+        .card-more-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-dark);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+        }
+
+        .card-more-btn:hover {
+            background: white;
+            color: var(--dark-pink);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Menu thả xuống khi bấm nút 3 chấm */
+        .card-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 12px;
+            background: white;
+            border: 1px solid var(--border-pink);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            width: 190px;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .card-dropdown-item {
+            padding: 10px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .card-dropdown-item:hover {
+            background-color: var(--light-pink);
+            color: var(--dark-pink);
+        }
+
+        /* AVATAR DẠNG HÌNH CHỮ NHẬT */
+        .card-avatar-summary {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
             object-fit: cover;
-            margin-bottom: 12px;
-            border: 3px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 14px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             flex-shrink: 0;
         }
 
         .card-name-summary {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--dark-pink);
-            text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             width: 100%;
             white-space: nowrap;
             overflow: hidden;
@@ -332,33 +399,179 @@
         .card-bio-summary {
             font-size: 13px;
             color: var(--text-dark);
-            text-align: center;
-            line-height: 1.45;
+            line-height: 1.5;
             width: 100%;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
             word-break: break-word;
+            margin-bottom: 14px;
+            flex: 1;
         }
 
-        /* --- BẢNG CHỌN MÀU NỀN MỞ RỘNG (PALETTE) --- */
+        /* Danh sách thông tin liên hệ hiển thị trực tiếp trên Card */
+        .card-contacts-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255, 143, 163, 0.4);
+        }
+
+        .card-contact-chip {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-pink);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--dark-pink);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .card-contact-chip:hover {
+            background: var(--light-pink);
+            transform: translateY(-2px);
+        }
+
+        /* --- FORM MODAL TOÀN MÀN HÌNH (FULLSCREEN) --- */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-color: white;
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .fullscreen-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 50px 20px;
+        }
+
+        .fullscreen-header-bar {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--light-pink);
+            z-index: 10;
+            margin-bottom: 25px;
+        }
+
+        .modal-title-text {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--dark-pink);
+        }
+
+        .close-fullscreen-btn {
+            background: var(--light-pink);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: var(--dark-pink);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .close-fullscreen-btn:hover {
+            background: var(--primary-pink);
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 14px;
+            outline: none;
+            font-size: 15px;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-pink);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 143, 163, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* Preview Avatar Hình Chữ Nhật Trong Form */
+        .img-preview-box-rect {
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+            border-radius: 16px;
+            border: 2px dashed var(--primary-pink);
+            background: var(--bg-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 10px auto 0 auto;
+            cursor: pointer;
+        }
+
+        .img-preview-box-rect img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- BẢNG CHỌN MÀU NỀN --- */
         .color-palette-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             margin-top: 10px;
             align-items: center;
         }
 
         .color-option {
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid #e2e8f0;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             transition: transform 0.2s;
         }
 
@@ -372,12 +585,12 @@
 
         .custom-color-wrapper {
             position: relative;
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             cursor: pointer;
             background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red);
             display: flex;
@@ -393,7 +606,7 @@
             cursor: pointer;
         }
 
-        /* --- HỘP HASHTAG THỂ LOẠI (SMALL BOX CHIPS) --- */
+        /* --- HỘP HASHTAG CHIPS --- */
         .genre-box-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -405,9 +618,9 @@
             background: white;
             color: var(--dark-pink);
             border: 1px solid var(--border-pink);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 13px;
             font-weight: 700;
             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
             display: inline-flex;
@@ -422,14 +635,13 @@
             font-size: 14px;
         }
 
-        /* --- CÁC NÚT BẤM TÙY CHỈNH --- */
-        /* Nút Xem Trước: Icon màu xám, tối giản */
+        /* --- NÚT BẤM FORM --- */
         .btn-preview-grey {
             background-color: var(--grey-btn);
             color: var(--grey-icon);
             border: none;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -440,26 +652,25 @@
         }
 
         .btn-preview-grey:hover {
-            background-color: #cbd5e1;
-            color: #334155;
+            background-color: #e2e8f0;
+            color: #1e293b;
             transform: scale(1.05);
         }
 
         .btn-preview-grey svg {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             fill: currentColor;
         }
 
-        /* Nút LƯU CARD: Màu hồng nhạt pastel, hiệu ứng nổi (Floating) */
         .btn-submit-pink-float {
             flex: 1;
             background: linear-gradient(135deg, #ffe6ea 0%, #fbcfe8 100%);
             color: #9f1239;
             border: 2px solid #f472b6;
-            padding: 14px 24px;
-            border-radius: 30px;
-            font-size: 16px;
+            padding: 16px 28px;
+            border-radius: 35px;
+            font-size: 17px;
             font-weight: 800;
             letter-spacing: 0.5px;
             cursor: pointer;
@@ -477,171 +688,35 @@
             background: linear-gradient(135deg, #ffd1dc 0%, #f9a8d4 100%);
         }
 
-        .btn-submit-pink-float:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 8px rgba(244, 114, 182, 0.3), 0 1px 0 #ec4899;
-        }
-
-        /* --- MODAL FULLSCREEN & DETAIL MODAL --- */
-        .fullscreen-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(4px);
-            z-index: 10000;
-            overflow-y: auto;
-        }
-
-        .modal-content-container {
-            background: white;
-            max-width: 650px;
-            margin: 40px auto;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            animation: modalSlideUp 0.3s ease;
-        }
-
-        @keyframes modalSlideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-header-bar {
-            background: white;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--light-pink);
-        }
-
-        .modal-title-text {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--dark-pink);
-        }
-
-        .close-fullscreen-btn {
-            background: var(--light-pink);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 20px;
-            color: var(--dark-pink);
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .fullscreen-body {
-            padding: 25px 25px 40px 25px;
-        }
-
-        .form-group {
+        /* MODAL CHI TIẾT */
+        .detail-avatar-rect {
+            width: 100%;
+            max-height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 1px solid var(--border-pink);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            outline: none;
-            font-size: 14px;
-            background: #fafafa;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-pink);
-            background: white;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 90px;
-        }
-
-        .img-preview-box {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 2px dashed var(--primary-pink);
-            background: var(--card-pink-default);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 10px auto 0 auto;
-            cursor: pointer;
-        }
-
-        .img-preview-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .contact-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: white;
-            border: 1px solid var(--border-pink);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--dark-pink);
-            text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        }
-
-        .contact-badge:hover {
-            transform: translateY(-2px);
-            background: var(--light-pink);
-        }
-
-        /* Chi tiết Creator Modal View */
-        .detail-avatar-large {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            margin: -60px auto 15px auto;
-            display: block;
-        }
-
         .detail-name {
-            font-size: 24px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: 900;
             color: var(--dark-pink);
             text-align: center;
             margin-bottom: 10px;
         }
 
         .detail-bio {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--text-dark);
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             white-space: pre-line;
-            background: rgba(255,255,255,0.6);
-            padding: 15px;
-            border-radius: 16px;
+            background: var(--bg-main);
+            padding: 18px;
+            border-radius: 18px;
         }
 
         .detail-section-title {
@@ -650,14 +725,36 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-align: center;
         }
 
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid var(--border-pink);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark-pink);
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+
+        .contact-badge:hover {
+            transform: translateY(-2px);
+            background: var(--light-pink);
+        }
+
         @media (max-width: 600px) {
-            h1 { font-size: 20px; padding-right: 35px; }
-            .user-profile-bar { top: 16px; right: 15px; }
-            .modal-content-container { margin: 0; min-height: 100vh; border-radius: 0; }
+            h1 { font-size: 22px; padding-right: 35px; }
+            .user-profile-bar { top: 18px; right: 15px; }
+            .btn-create-main { font-size: 16px; padding: 14px 30px; }
+            .creator-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -666,7 +763,7 @@
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toast-container"></div>
 
-    <!-- ================= MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ ================= -->
+    <!-- MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
     <div id="authOverlay">
         <div class="auth-card">
             <!-- Form Đăng Nhập -->
@@ -684,7 +781,7 @@
                     <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
                 </div>
 
-                <button class="btn-create-main" style="width: 100%; border-radius: 12px; padding: 14px; font-size: 16px;" onclick="handleLogin()">Đăng Nhập</button>
+                <button class="btn-create-main" style="width: 100%; border-radius: 14px; padding: 14px; font-size: 16px;" onclick="handleLogin()">Đăng Nhập</button>
                 
                 <p class="auth-switch-text">
                     Bạn chưa có tài khoản? <span class="auth-switch-link" onclick="switchAuthMode('signup')">Đăng ký</span>
@@ -710,7 +807,7 @@
                     <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Nhập lại mật khẩu" required>
                 </div>
 
-                <button class="btn-create-main" style="width: 100%; border-radius: 12px; padding: 14px; font-size: 16px;" onclick="handleSignUp()">Đăng Ký</button>
+                <button class="btn-create-main" style="width: 100%; border-radius: 14px; padding: 14px; font-size: 16px;" onclick="handleSignUp()">Đăng Ký</button>
                 
                 <p class="auth-switch-text">
                     Bạn đã có tài khoản? <span class="auth-switch-link" onclick="switchAuthMode('login')">Đăng nhập</span>
@@ -724,7 +821,6 @@
         <div class="user-profile-bar">
             <button class="user-avatar-btn" id="headerUserAvatar" onclick="toggleUserMenu(event)" title="Tài khoản Creator">C</button>
             
-            <!-- MENU THẢ XUỐNG KHI BẤM VÀO AVATAR -->
             <div class="user-dropdown-menu" id="userMenuDropdown">
                 <div class="user-dropdown-item" onclick="handleMenuEditCard()">
                     <span>✏️</span> Chỉnh sửa profile
@@ -744,162 +840,149 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm theo Tên Creator hoặc Thể loại..." oninput="handleSearch()">
         </div>
 
+        <!-- NÚT ADD CREATOR RẤT NỔI BẬT -->
         <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">
-            <span>+</span> Add Creator
+            <span>✨</span> Add Creator
         </button>
     </header>
 
     <main>
-        <!-- GRID LƯU VÀ HIỂN THỊ CÁC CARD -->
+        <!-- GRID HIỂN THỊ CÁC CARD CREATOR HÌNH CHỮ NHẬT -->
         <div class="creator-grid" id="creator-grid">
             <p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">Đang tải danh sách Creator...</p>
         </div>
     </main>
 
-    <!-- ================= MODAL: TẠO / SỬA CREATOR ================= -->
+    <!-- ================= FORM MODAL TOÀN MÀN HÌNH (FULLSCREEN) ================= -->
     <div id="creatorModal" class="fullscreen-modal">
-        <div class="modal-content-container">
-            <div class="modal-header-bar">
+        <div class="fullscreen-content">
+            <div class="fullscreen-header-bar">
                 <span class="modal-title-text" id="formTitle">Tạo Card Creator</span>
                 <button class="close-fullscreen-btn" onclick="closeCreatorModal()">&times;</button>
             </div>
 
-            <div class="fullscreen-body">
-                <form id="creatorForm" onsubmit="submitCreator(event)">
-
-                    <div class="form-group" style="text-align: center;">
-                        <label>Ảnh Avatar Creator *</label>
-                        <input type="file" id="avatarFile" accept="image/*" onchange="previewImage(event)" style="display: none;">
-                        <div class="img-preview-box" onclick="document.getElementById('avatarFile').click()">
-                            <img id="avatarPreviewImg" src="" style="display: none;">
-                            <span id="avatarPreviewPlaceholder" style="font-size: 12px; color: var(--text-muted); padding: 5px;">Bấm để chọn ảnh</span>
-                        </div>
+            <form id="creatorForm" onsubmit="submitCreator(event)">
+                <div class="form-group" style="text-align: center;">
+                    <label>Ảnh Avatar Creator (Hình chữ nhật) *</label>
+                    <input type="file" id="avatarFile" accept="image/*" onchange="previewImage(event)" style="display: none;">
+                    <div class="img-preview-box-rect" onclick="document.getElementById('avatarFile').click()">
+                        <img id="avatarPreviewImg" src="" style="display: none;">
+                        <span id="avatarPreviewPlaceholder" style="font-size: 13px; color: var(--text-muted); padding: 10px;">Bấm vào đây để chọn ảnh</span>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label>Tên Creator *</label>
-                        <input type="text" id="creatorName" class="form-control" placeholder="Nhập tên hiển thị của bạn" required>
+                <div class="form-group">
+                    <label>Tên Creator *</label>
+                    <input type="text" id="creatorName" class="form-control" placeholder="Nhập tên hiển thị của bạn" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Bio (Mô tả ngắn - Tùy chọn)</label>
+                    <textarea id="creatorBio" class="form-control" placeholder="Giới thiệu phong cách, sở thích hoặc câu nói tâm đắc..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Thông tin liên hệ (Bắt buộc ít nhất 1) *</label>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap;">
+                        <select id="contactPlatformSelect" class="form-control" style="width: 140px;" onchange="handlePlatformChange()">
+                            <option value="facebook">Facebook</option>
+                            <option value="twitter">Twitter / X</option>
+                            <option value="discord">Discord</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="website">Website</option>
+                            <option value="other">Link khác</option>
+                        </select>
+                        <input type="text" id="contactCustomNameInput" class="form-control" placeholder="Tên link (VD: Zalo)" style="display:none; width: 130px;">
+                        <input type="url" id="contactUrlInput" class="form-control" style="flex: 1; min-width: 200px;" placeholder="https://...">
+                        <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 20px; border-radius: 12px; font-weight: 700; cursor: pointer;" onclick="addContact()">Thêm</button>
                     </div>
+                    <div class="genre-box-wrapper" id="contactChipsWrapper"></div>
+                </div>
 
-                    <div class="form-group">
-                        <label>Bio (Mô tả ngắn - Tùy chọn)</label>
-                        <textarea id="creatorBio" class="form-control" placeholder="Giới thiệu phong cách, sở thích hoặc câu nói tâm đắc..."></textarea>
+                <div class="form-group">
+                    <label>Thể loại hay tạo (Nhấn Enter hoặc bấm Thêm)</label>
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <input type="text" id="genreInput" class="form-control" placeholder="Ví dụ: Roleplay, Xuyên Không, AI Prompt..." onkeypress="handleGenreKeyPress(event)">
+                        <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 20px; border-radius: 12px; font-weight: 700; cursor: pointer;" onclick="addGenreFromInput()">Thêm</button>
                     </div>
+                    <div class="genre-box-wrapper" id="genreChipsWrapper"></div>
+                </div>
 
-                    <div class="form-group">
-                        <label>Thông tin liên hệ (Bắt buộc ít nhất 1) *</label>
-                        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                            <select id="contactPlatformSelect" class="form-control" style="width: 140px;" onchange="handlePlatformChange()">
-                                <option value="facebook">Facebook</option>
-                                <option value="twitter">Twitter / X</option>
-                                <option value="discord">Discord</option>
-                                <option value="tiktok">TikTok</option>
-                                <option value="website">Website</option>
-                                <option value="other">Link khác</option>
-                            </select>
-                            <input type="text" id="contactCustomNameInput" class="form-control" placeholder="Tên link (VD: Zalo)" style="display:none; width: 130px;">
-                            <input type="url" id="contactUrlInput" class="form-control" placeholder="https://...">
-                            <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 16px; border-radius: 10px; font-weight: 600; cursor: pointer;" onclick="addContact()">Thêm</button>
-                        </div>
-                        <div class="genre-box-wrapper" id="contactChipsWrapper"></div>
-                    </div>
-
-                    <!-- THỂ LOẠI DẠNG HASHTAG TỪNG HỘP -->
-                    <div class="form-group">
-                        <label>Thể loại hay tạo (Nhấn Enter hoặc bấm Thêm để tạo hộp Hashtag)</label>
-                        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                            <input type="text" id="genreInput" class="form-control" placeholder="Ví dụ: Roleplay, Xuyên Không, AI Prompt..." onkeypress="handleGenreKeyPress(event)">
-                            <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 16px; border-radius: 10px; font-weight: 600; cursor: pointer;" onclick="addGenreFromInput()">Thêm</button>
-                        </div>
-                        <div class="genre-box-wrapper" id="genreChipsWrapper"></div>
-                    </div>
-
-                    <!-- BẢNG MÀU PHONG PHÚ + CHỌN MÀU TÙY CHỈNH -->
-                    <div class="form-group">
-                        <label>Bảng màu nền Card Creator</label>
-                        <div class="color-palette-container" id="colorPalette">
-                            <div class="color-option active" style="background: #fff0f3;" onclick="selectColor('#fff0f3', this)" title="Hồng nhạt"></div>
-                            <div class="color-option" style="background: #f0f9ff;" onclick="selectColor('#f0f9ff', this)" title="Xanh dương nhạt"></div>
-                            <div class="color-option" style="background: #f3e8ff;" onclick="selectColor('#f3e8ff', this)" title="Tím mộng mơ"></div>
-                            <div class="color-option" style="background: #f0fdf4;" onclick="selectColor('#f0fdf4', this)" title="Xanh lá nhạt"></div>
-                            <div class="color-option" style="background: #fffbeeb0;" onclick="selectColor('#fffbeeb0', this)" title="Vàng kem"></div>
-                            <div class="color-option" style="background: #ffedd5;" onclick="selectColor('#ffedd5', this)" title="Cam đào"></div>
-                            <div class="color-option" style="background: #fce7f3;" onclick="selectColor('#fce7f3', this)" title="Màu Hoa Anh Đào"></div>
-                            <div class="color-option" style="background: #e0e7ff;" onclick="selectColor('#e0e7ff', this)" title="Chàm nhạt"></div>
-                            <div class="color-option" style="background: #f5f5f5;" onclick="selectColor('#f5f5f5', this)" title="Xám hiện đại"></div>
-                            <div class="color-option" style="background: #ffffff;" onclick="selectColor('#ffffff', this)" title="Trắng tinh tế"></div>
-                            
-                            <!-- Nút chọn màu tùy chỉnh tự do -->
-                            <div class="custom-color-wrapper" title="Tùy chọn màu bất kỳ">
-                                <input type="color" id="customColorPicker" class="custom-color-input" value="#fff0f3" onchange="selectCustomColor(this.value)">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- THAO TÁC NÚT BẤM -->
-                    <div style="display: flex; gap: 12px; margin-top: 30px; align-items: center;">
-                        <!-- Nút Xem trước: Icon màu xám, không có chữ -->
-                        <button type="button" class="btn-preview-grey" onclick="togglePreview()" title="Xem trước Card">
-                            <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                        </button>
+                <div class="form-group">
+                    <label>Bảng màu nền Card Creator</label>
+                    <div class="color-palette-container" id="colorPalette">
+                        <div class="color-option active" style="background: #ffffff;" onclick="selectColor('#ffffff', this)" title="Trắng tinh tế"></div>
+                        <div class="color-option" style="background: #fff0f3;" onclick="selectColor('#fff0f3', this)" title="Hồng nhạt"></div>
+                        <div class="color-option" style="background: #f0f9ff;" onclick="selectColor('#f0f9ff', this)" title="Xanh dương nhạt"></div>
+                        <div class="color-option" style="background: #f3e8ff;" onclick="selectColor('#f3e8ff', this)" title="Tím mộng mơ"></div>
+                        <div class="color-option" style="background: #f0fdf4;" onclick="selectColor('#f0fdf4', this)" title="Xanh lá nhạt"></div>
+                        <div class="color-option" style="background: #fffbeeb0;" onclick="selectColor('#fffbeeb0', this)" title="Vàng kem"></div>
+                        <div class="color-option" style="background: #ffedd5;" onclick="selectColor('#ffedd5', this)" title="Cam đào"></div>
+                        <div class="color-option" style="background: #fce7f3;" onclick="selectColor('#fce7f3', this)" title="Màu Hoa Anh Đào"></div>
+                        <div class="color-option" style="background: #f1f5f9;" onclick="selectColor('#f1f5f9', this)" title="Xám hiện đại"></div>
                         
-                        <!-- Nút LƯU CARD: Nổi bật, hồng nhạt, hiệu ứng floating -->
-                        <button type="submit" class="btn-submit-pink-float" id="submitBtn">✨ LƯU CARD CREATOR</button>
+                        <div class="custom-color-wrapper" title="Tùy chọn màu bất kỳ">
+                            <input type="color" id="customColorPicker" class="custom-color-input" value="#ffffff" onchange="selectCustomColor(this.value)">
+                        </div>
                     </div>
+                </div>
 
-                    <!-- KHU VỰC XEM TRƯỚC -->
-                    <div id="previewCardSection" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--border-pink);">
-                        <div class="detail-section-title" style="margin-bottom: 12px;">XEM TRƯỚC CARD TRÊN TRANG CHỦ</div>
-                        <div id="previewCardBox" style="max-width: 260px; margin: 0 auto;"></div>
-                    </div>
+                <div style="display: flex; gap: 15px; margin-top: 35px; align-items: center;">
+                    <button type="button" class="btn-preview-grey" onclick="togglePreview()" title="Xem trước Card">
+                        <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    </button>
+                    
+                    <button type="submit" class="btn-submit-pink-float" id="submitBtn">✨ LƯU CARD CREATOR</button>
+                </div>
 
-                </form>
-            </div>
+                <div id="previewCardSection" style="display: none; margin-top: 30px; padding-top: 25px; border-top: 2px dashed var(--border-pink);">
+                    <div class="detail-section-title" style="margin-bottom: 15px;">XEM TRƯỚC CARD TRÊN TRANG CHỦ</div>
+                    <div id="previewCardBox" style="max-width: 320px; margin: 0 auto;"></div>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- ================= MODAL: CHI TIẾT CREATOR ================= -->
+    <!-- ================= MODAL FULLSCREEN: CHI TIẾT CREATOR ================= -->
     <div id="creatorDetailModal" class="fullscreen-modal">
-        <div class="modal-content-container">
-            <div class="modal-header-bar" id="detailHeaderBg" style="height: 100px; border: none;">
-                <div></div>
+        <div class="fullscreen-content">
+            <div class="fullscreen-header-bar">
+                <span class="modal-title-text">Profile Creator</span>
                 <button class="close-fullscreen-btn" onclick="closeDetailModal()">&times;</button>
             </div>
 
-            <div class="fullscreen-body" style="padding-top: 0;">
-                <img id="detailAvatar" class="detail-avatar-large" src="" alt="Avatar">
+            <div>
+                <img id="detailAvatar" class="detail-avatar-rect" src="" alt="Avatar">
                 <div id="detailName" class="detail-name"></div>
                 <div id="detailBio" class="detail-bio"></div>
 
                 <div class="detail-section-title">THỂ LOẠI TẠO DỰNG</div>
-                <div class="genre-box-wrapper" id="detailGenres" style="justify-content: center; margin-bottom: 22px;"></div>
+                <div class="genre-box-wrapper" id="detailGenres" style="justify-content: center; margin-bottom: 25px;"></div>
 
-                <div class="detail-section-title">LIÊN HỆ & DỰ ÁN</div>
-                <div id="detailContacts" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 25px;"></div>
+                <div class="detail-section-title">THÔNG TIN LIÊN HỆ & LINK</div>
+                <div id="detailContacts" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px;"></div>
 
-                <button class="btn-create-main" style="width: 100%; border-radius: 16px;" onclick="copyCurrentProfileLink()">🔗 Sao chép Link Profile</button>
+                <button class="btn-create-main" style="width: 100%; border-radius: 20px;" onclick="copyCurrentProfileLink()">🔗 Sao Chép Link Profile</button>
             </div>
         </div>
     </div>
 
-    <!-- ================= MODAL: ĐỔI MẬT KHẨU ================= -->
-    <div id="changePasswordModal" class="fullscreen-modal">
-        <div class="modal-content-container" style="max-width: 400px;">
-            <div class="modal-header-bar">
-                <span class="modal-title-text">🔑 Đổi Mật Khẩu</span>
-                <button class="close-fullscreen-btn" onclick="closeChangePasswordModal()">&times;</button>
+    <!-- MODAL: ĐỔI MẬT KHẨU -->
+    <div id="changePasswordModal" class="fullscreen-modal" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
+        <div style="background: white; max-width: 420px; margin: 80px auto; border-radius: 24px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <span class="modal-title-text" style="font-size: 20px;">🔑 Đổi Mật Khẩu</span>
+                <button class="close-fullscreen-btn" style="width: 34px; height: 34px; font-size: 18px;" onclick="closeChangePasswordModal()">&times;</button>
             </div>
-            <div class="fullscreen-body">
-                <div class="form-group">
-                    <label>Mật khẩu mới *</label>
-                    <input type="password" id="newPasswordInput" class="form-control" placeholder="Tối thiểu 6 ký tự">
-                </div>
-                <div class="form-group">
-                    <label>Xác nhận mật khẩu mới *</label>
-                    <input type="password" id="confirmNewPasswordInput" class="form-control" placeholder="Nhập lại mật khẩu mới">
-                </div>
-                <button class="btn-submit-pink-float" style="width: 100%; margin-top: 15px;" onclick="submitChangePassword()">CẬP NHẬT MẬT KHẨU</button>
+            <div class="form-group">
+                <label>Mật khẩu mới *</label>
+                <input type="password" id="newPasswordInput" class="form-control" placeholder="Tối thiểu 6 ký tự">
             </div>
+            <div class="form-group">
+                <label>Xác nhận mật khẩu mới *</label>
+                <input type="password" id="confirmNewPasswordInput" class="form-control" placeholder="Nhập lại mật khẩu mới">
+            </div>
+            <button class="btn-submit-pink-float" style="width: 100%; margin-top: 15px;" onclick="submitChangePassword()">CẬP NHẬT MẬT KHẨU</button>
         </div>
     </div>
 
@@ -917,7 +1000,7 @@
         let contactList = [];
         let genreList = [];
         let selectedFile = null;
-        let selectedCardColor = '#fff0f3';
+        let selectedCardColor = '#ffffff';
         let currentViewingId = null;
 
         function showToast(message, type = 'error') {
@@ -966,6 +1049,9 @@
                 if (!e.target.closest('.user-profile-bar')) {
                     document.getElementById('userMenuDropdown').style.display = 'none';
                 }
+                if (!e.target.closest('.card-more-btn') && !e.target.closest('.card-dropdown-menu')) {
+                    document.querySelectorAll('.card-dropdown-menu').forEach(m => m.style.display = 'none');
+                }
             });
 
             // Tự động mở Profile nếu link có tham số ?id=...
@@ -976,7 +1062,7 @@
             }
         });
 
-        // MENU TÀI KHOẢN (HEADER)
+        // MENU USER
         function toggleUserMenu(e) {
             e.stopPropagation();
             const menu = document.getElementById('userMenuDropdown');
@@ -1022,7 +1108,7 @@
             }
         }
 
-        // ĐĂNG NHẬP / ĐĂNG KÝ
+        // AUTH HANDLERS
         function switchAuthMode(mode) {
             document.getElementById('loginSection').style.display = mode === 'login' ? 'block' : 'none';
             document.getElementById('signupSection').style.display = mode === 'signup' ? 'block' : 'none';
@@ -1077,7 +1163,7 @@
             showToast("Đã đăng xuất!", "success");
         }
 
-        // TẢI VÀ HIỂN THỊ DỮ LIỆU
+        // TẢI & HIỂN THỊ DỮ LIỆU
         async function initData() {
             await loadAllCreators();
             await checkUserCard();
@@ -1093,7 +1179,7 @@
                 btnMain.innerHTML = `<span>✏️</span> Sửa Card Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(myCreatorCard.name);
             } else {
-                btnMain.innerHTML = `<span>+</span> Add Creator`;
+                btnMain.innerHTML = `<span>✨</span> Add Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(currentUser.email);
             }
         }
@@ -1125,33 +1211,91 @@
             });
         }
 
-        // TẠO CARD TRÊN TRANG CHỦ (CHỈ CÓ AVATAR + TÊN + BIO NGẮN)
+        // TẠO CARD CREATOR HÌNH CHỮ NHẬT TỔNG THỂ VỚI NÚT 3 CHẤM & LINK LIÊN HỆ
         function createSummaryCardElement(creator) {
             const card = document.createElement('div');
             card.className = 'creator-card-summary';
-            card.style.backgroundColor = creator.card_color || '#fff0f3';
+            card.style.backgroundColor = creator.card_color || '#ffffff';
             card.onclick = () => openCreatorDetailModal(creator.id);
 
+            // Bổ sung danh sách Contact Badges trên Card
+            let contactsArr = [];
+            try { contactsArr = JSON.parse(creator.contacts || '[]'); } catch(e){}
+
+            let contactsBadgesHtml = contactsArr.map(c => `
+                <a class="card-contact-chip" href="${c.url}" target="_blank" onclick="event.stopPropagation();">
+                    ${getPlatformIcon(c.platform)} ${c.label}
+                </a>
+            `).join('');
+
+            // Bổ sung Items trong Menu 3 chấm
+            let contactsMenuItemsHtml = contactsArr.map(c => `
+                <a class="card-dropdown-item" href="${c.url}" target="_blank" onclick="event.stopPropagation();">
+                    ${getPlatformIcon(c.platform)} Mở ${c.label}
+                </a>
+            `).join('');
+
             card.innerHTML = `
+                <!-- Nút 3 chấm trên Card -->
+                <div class="card-more-btn" onclick="toggleCardMoreMenu(event, '${creator.id}')">⋮</div>
+
+                <!-- Menu Thả Xuống của nút 3 chấm -->
+                <div class="card-dropdown-menu" id="cardDropdown-${creator.id}">
+                    <div class="card-dropdown-item" onclick="shareCreatorDirect(event, '${creator.id}')">
+                        <span>🔗</span> Chia sẻ Profile
+                    </div>
+                    ${contactsMenuItemsHtml}
+                </div>
+
+                <!-- Avatar Hình Chữ Nhật -->
                 <img class="card-avatar-summary" src="${creator.avatar_url}" alt="${creator.name}">
+
+                <!-- Tên Creator -->
                 <div class="card-name-summary">${creator.name}</div>
+
+                <!-- Bio Short -->
                 <div class="card-bio-summary">${creator.bio || 'Chưa có lời giới thiệu'}</div>
+
+                <!-- Thông tin liên hệ hiển thị Tên + Icon -->
+                <div class="card-contacts-wrapper">
+                    ${contactsBadgesHtml || '<span style="font-size:11px; color:var(--text-muted);">Chưa gắn link liên hệ</span>'}
+                </div>
             `;
             return card;
         }
 
-        // XEM CHI TIẾT CARD CREATOR
+        // MENU 3 CHẤM
+        function toggleCardMoreMenu(e, id) {
+            e.stopPropagation();
+            // Đóng các menu 3 chấm khác
+            document.querySelectorAll('.card-dropdown-menu').forEach(m => {
+                if (m.id !== `cardDropdown-${id}`) m.style.display = 'none';
+            });
+
+            const targetMenu = document.getElementById(`cardDropdown-${id}`);
+            if (targetMenu) {
+                targetMenu.style.display = targetMenu.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        function shareCreatorDirect(e, id) {
+            e.stopPropagation();
+            document.querySelectorAll('.card-dropdown-menu').forEach(m => m.style.display = 'none');
+            const shareUrl = `${window.location.origin}${window.location.pathname}?id=${id}`;
+            navigator.clipboard.writeText(shareUrl);
+            showToast("Đã sao chép link profile!", "success");
+        }
+
+        // CHI TIẾT CREATOR MODAL
         function openCreatorDetailModal(creatorId) {
             const creator = allCreators.find(c => c.id == creatorId);
             if (!creator) return;
 
             currentViewingId = creator.id;
-            document.getElementById('detailHeaderBg').style.backgroundColor = creator.card_color || '#fff0f3';
             document.getElementById('detailAvatar').src = creator.avatar_url;
             document.getElementById('detailName').innerText = creator.name;
             document.getElementById('detailBio').innerText = creator.bio || "Chưa có lời giới thiệu.";
 
-            // Render Thể loại dạng Hộp Hashtag
             const genresContainer = document.getElementById('detailGenres');
             genresContainer.innerHTML = '';
             const genresArr = creator.genres ? creator.genres.split(',').map(g => g.trim()).filter(g => g) : [];
@@ -1164,10 +1308,9 @@
                     genresContainer.appendChild(tagBox);
                 });
             } else {
-                genresContainer.innerHTML = '<span style="font-size: 12px; color: var(--text-muted);">Tự do</span>';
+                genresContainer.innerHTML = '<span style="font-size: 13px; color: var(--text-muted);">Tự do</span>';
             }
 
-            // Render Links Liên hệ
             const contactsContainer = document.getElementById('detailContacts');
             contactsContainer.innerHTML = '';
             let contacts = [];
@@ -1196,7 +1339,49 @@
             showToast("Đã sao chép link profile!", "success");
         }
 
-        // HỘP HASHTAG THỂ LOẠI (FORM)
+        // FORM FULLSCREEN ADD/EDIT CREATOR
+        function openCreatorModal() {
+            if (!currentUser) {
+                showToast("Vui lòng đăng nhập trước!");
+                return;
+            }
+
+            document.getElementById('creatorForm').reset();
+            document.getElementById('previewCardSection').style.display = 'none';
+
+            if (myCreatorCard) {
+                document.getElementById('formTitle').innerText = "Chỉnh Sửa Card Creator";
+                document.getElementById('creatorName').value = myCreatorCard.name;
+                document.getElementById('creatorBio').value = myCreatorCard.bio || "";
+                
+                selectedCardColor = myCreatorCard.card_color || '#ffffff';
+
+                const imgPreview = document.getElementById('avatarPreviewImg');
+                imgPreview.src = myCreatorCard.avatar_url;
+                imgPreview.style.display = 'block';
+                document.getElementById('avatarPreviewPlaceholder').style.display = 'none';
+
+                try { contactList = JSON.parse(myCreatorCard.contacts); } catch(e){ contactList = []; }
+                genreList = myCreatorCard.genres ? myCreatorCard.genres.split(',').map(g => g.trim()).filter(g => g) : [];
+            } else {
+                document.getElementById('formTitle').innerText = "Tạo Card Creator";
+                document.getElementById('avatarPreviewImg').style.display = 'none';
+                document.getElementById('avatarPreviewPlaceholder').style.display = 'block';
+                contactList = [];
+                genreList = [];
+                selectedCardColor = '#ffffff';
+            }
+
+            renderContactChips();
+            renderGenreChips();
+            document.getElementById('creatorModal').style.display = 'block';
+        }
+
+        function closeCreatorModal() {
+            document.getElementById('creatorModal').style.display = 'none';
+        }
+
+        // HASHTAG & CONTACT FORM
         function handleGenreKeyPress(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -1228,7 +1413,6 @@
             `).join('');
         }
 
-        // THÔNG TIN LIÊN HỆ (FORM)
         function handlePlatformChange() {
             const platform = document.getElementById('contactPlatformSelect').value;
             document.getElementById('contactCustomNameInput').style.display = platform === 'other' ? 'block' : 'none';
@@ -1287,7 +1471,6 @@
             }
         }
 
-        // CHỌN MÀU NỀN
         function selectColor(colorHex, elem) {
             selectedCardColor = colorHex;
             document.querySelectorAll('.color-option').forEach(el => el.classList.remove('active'));
@@ -1299,7 +1482,6 @@
             document.querySelectorAll('.color-option').forEach(el => el.classList.remove('active'));
         }
 
-        // PREVIEW ẢNH AVATAR
         function previewImage(event) {
             const file = event.target.files[0];
             if(file) {
@@ -1315,49 +1497,6 @@
             }
         }
 
-        // MỞ/ĐÓNG CREATOR FORM MODAL
-        function openCreatorModal() {
-            if (!currentUser) {
-                showToast("Vui lòng đăng nhập trước!");
-                return;
-            }
-
-            document.getElementById('creatorForm').reset();
-            document.getElementById('previewCardSection').style.display = 'none';
-
-            if (myCreatorCard) {
-                document.getElementById('formTitle').innerText = "Chỉnh Sửa Card Creator";
-                document.getElementById('creatorName').value = myCreatorCard.name;
-                document.getElementById('creatorBio').value = myCreatorCard.bio || "";
-                
-                selectedCardColor = myCreatorCard.card_color || '#fff0f3';
-
-                const imgPreview = document.getElementById('avatarPreviewImg');
-                imgPreview.src = myCreatorCard.avatar_url;
-                imgPreview.style.display = 'block';
-                document.getElementById('avatarPreviewPlaceholder').style.display = 'none';
-
-                try { contactList = JSON.parse(myCreatorCard.contacts); } catch(e){ contactList = []; }
-                genreList = myCreatorCard.genres ? myCreatorCard.genres.split(',').map(g => g.trim()).filter(g => g) : [];
-            } else {
-                document.getElementById('formTitle').innerText = "Tạo Card Creator";
-                document.getElementById('avatarPreviewImg').style.display = 'none';
-                document.getElementById('avatarPreviewPlaceholder').style.display = 'block';
-                contactList = [];
-                genreList = [];
-                selectedCardColor = '#fff0f3';
-            }
-
-            renderContactChips();
-            renderGenreChips();
-            document.getElementById('creatorModal').style.display = 'block';
-        }
-
-        function closeCreatorModal() {
-            document.getElementById('creatorModal').style.display = 'none';
-        }
-
-        // NÚT XEM TRƯỚC CARD
         function togglePreview() {
             const section = document.getElementById('previewCardSection');
             if (section.style.display === 'block') {
@@ -1367,13 +1506,15 @@
 
             const name = document.getElementById('creatorName').value || "Tên Creator";
             const bio = document.getElementById('creatorBio').value || "Lời giới thiệu xem trước...";
-            const avatarSrc = document.getElementById('avatarPreviewImg').src || "https://via.placeholder.com/100";
+            const avatarSrc = document.getElementById('avatarPreviewImg').src || "https://via.placeholder.com/300x180";
 
             const demoData = {
+                id: 'preview',
                 name: name,
                 bio: bio,
                 avatar_url: avatarSrc,
-                card_color: selectedCardColor
+                card_color: selectedCardColor,
+                contacts: JSON.stringify(contactList)
             };
 
             const box = document.getElementById('previewCardBox');
@@ -1382,7 +1523,7 @@
             section.style.display = 'block';
         }
 
-        // SUBMIT FORM CREATOR
+        // SUBMIT CREATOR FORM
         async function submitCreator(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -1440,7 +1581,7 @@
             }
         }
 
-        // TÌM KIẾM
+        // SEARCH
         function handleSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             const filtered = allCreators.filter(c => 
