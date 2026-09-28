@@ -8,9 +8,9 @@
     <!-- THẺ HIỂN THỊ KHI CHIA SẺ LINK (OPEN GRAPH) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Thế Giới Creator">
-    <meta property="og:description" content="Nơi kết nối, tổng hợp danh tính và chia sẻ profile các Creator Roleplay!">
+    <meta property="og:description" content="Nơi tổng hợp các Creator Roleplay!">
     <meta property="og:image" content="https://vkovlqgnucqhqbwzegxg.supabase.co/storage/v1/object/public/avatars/07f3a1b1-8f5b-4127-939e-8e96f28f08a1.jpg">
-    <meta property="og:url" content="https://thegioicreator.github.io/">
+    <meta property="og:url" content="https://thegioicreator.github.io/mienmienxinhh">
 
     <!-- Supabase JS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -26,7 +26,7 @@
             --text-dark: #2b2b2b;
             --text-muted: #718096;
             --border-pink: #fbcfe8;
-            --grey-btn: #e2e8f0;
+            --grey-btn: #f1f5f9;
             --grey-icon: #64748b;
         }
 
@@ -57,14 +57,14 @@
         }
 
         .toast {
-            background-color: var(--light-pink);
-            color: #b91c1c;
+            background-color: white;
+            color: var(--dark-pink);
             border: 1px solid var(--primary-pink);
             padding: 12px 24px;
             border-radius: 30px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
-            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 77, 109, 0.2);
             pointer-events: auto;
             animation: fadeInDown 0.3s ease, fadeOutUp 0.3s ease 2.7s forwards;
             display: flex;
@@ -73,8 +73,9 @@
         }
 
         .toast.success {
-            color: #9f1239;
-            background-color: #ffe4e6;
+            color: #059669;
+            border-color: #6ee7b7;
+            background-color: #ecfdf5;
         }
 
         @keyframes fadeInDown {
@@ -226,7 +227,7 @@
             background-color: #fee2e2;
         }
 
-        /* --- SEARCH & NÚT ADD CREATOR NỔI BẬT --- */
+        /* --- SEARCH & NÚT ADD CREATOR --- */
         .search-container {
             max-width: 520px;
             margin: 0 auto 20px auto;
@@ -248,9 +249,8 @@
             box-shadow: 0 0 0 4px rgba(255, 143, 163, 0.2);
         }
 
-        /* Nút Add Creator to, nổi bật, hiệu ứng rực rỡ */
         .btn-create-main {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff758c 100%);
             color: white;
             border: none;
             padding: 16px 48px;
@@ -258,7 +258,7 @@
             font-weight: 800;
             border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.45), 0 4px 0 #e65c7b;
+            box-shadow: 0 8px 25px rgba(255, 77, 109, 0.4), 0 4px 0 #c9184a;
             transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
@@ -269,30 +269,30 @@
 
         .btn-create-main:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(255, 117, 140, 0.55), 0 5px 0 #e65c7b;
+            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.5), 0 5px 0 #c9184a;
         }
 
         .btn-create-main:active {
             transform: translateY(1px);
-            box-shadow: 0 4px 12px rgba(255, 117, 140, 0.4), 0 1px 0 #e65c7b;
+            box-shadow: 0 4px 12px rgba(255, 77, 109, 0.3), 0 1px 0 #c9184a;
         }
 
-        /* --- GRID CARD CREATOR (HÌNH CHỮ NHẬT HÀI HÒA) --- */
+        /* --- GRID CARD CREATOR (KÍCH THƯỚC CHUẨN MỚI, TỈ LỆ HÀI HÒA) --- */
         .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
             padding: 35px 20px;
-            max-width: 1250px;
+            max-width: 1350px;
             margin: 0 auto;
         }
 
         .creator-card-box {
             width: 100%;
-            height: 440px; /* Chiều cao hình chữ nhật chuẩn hài hòa */
+            height: 500px; /* Kích thước rộng rãi, tỉ lệ chữ nhật cân đối */
             border-radius: 24px;
             border: 1px solid var(--border-pink);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
             transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
@@ -304,8 +304,8 @@
         }
 
         .creator-card-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 32px rgba(255, 143, 163, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 35px rgba(255, 143, 163, 0.35);
             border-color: var(--primary-pink);
         }
 
@@ -314,11 +314,11 @@
             position: absolute;
             top: 14px;
             right: 14px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(4px);
             border: 1px solid var(--border-pink);
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             font-size: 20px;
             font-weight: 900;
@@ -329,7 +329,7 @@
             justify-content: center;
             z-index: 10;
             transition: all 0.2s;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .card-menu-btn:hover {
@@ -337,23 +337,23 @@
             transform: scale(1.1);
         }
 
-        /* Menu thả xuống từ nút ba chấm của card */
+        /* Menu thả xuống từ nút ba chấm */
         .card-dropdown-menu {
             display: none;
             position: absolute;
-            top: 55px;
+            top: 58px;
             right: 14px;
             background: white;
             border: 1px solid var(--border-pink);
-            border-radius: 14px;
+            border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            z-index: 20;
-            width: 200px;
+            z-index: 30;
+            width: 210px;
             overflow: hidden;
         }
 
         .card-dropdown-item {
-            padding: 11px 16px;
+            padding: 12px 16px;
             font-size: 13px;
             font-weight: 700;
             color: var(--text-dark);
@@ -369,25 +369,25 @@
             color: var(--dark-pink);
         }
 
-        /* Avatar chiếm khoảng 3/4 kích thước card trên */
+        /* Avatar dạng hình chữ nhật chiếm 3/4 card */
         .card-avatar-rect {
             width: 100%;
-            height: 65%; /* Khoảng 3/4 card */
+            height: 72%; /* Chiếm xấp xỉ 3/4 kích thước card */
             object-fit: cover;
             background-color: #f1f5f9;
         }
 
-        /* Phần nội dung phía dưới card */
+        /* Phần nội dung thông tin phía dưới card */
         .card-content-section {
-            height: 35%;
-            padding: 14px 16px;
+            height: 28%;
+            padding: 14px 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .card-name-text {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--dark-pink);
             white-space: nowrap;
@@ -397,7 +397,7 @@
         }
 
         .card-bio-text {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-dark);
             line-height: 1.4;
             display: -webkit-box;
@@ -408,7 +408,6 @@
             margin-bottom: 6px;
         }
 
-        /* Thông tin liên hệ hiển thị tên + icon nền tảng trực tiếp trên card */
         .card-contacts-inline {
             display: flex;
             flex-wrap: wrap;
@@ -420,12 +419,12 @@
         .card-contact-badge-mini {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             background: white;
             border: 1px solid var(--border-pink);
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 12px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--dark-pink);
             text-decoration: none;
@@ -448,8 +447,8 @@
         }
 
         .color-option {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             border: 2px solid white;
             cursor: pointer;
@@ -467,8 +466,8 @@
 
         .custom-color-wrapper {
             position: relative;
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid white;
@@ -488,7 +487,7 @@
             cursor: pointer;
         }
 
-        /* --- HỘP HASHTAG THỂ LOẠI --- */
+        /* --- HASHTAG THỂ LOẠI --- */
         .genre-box-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -500,9 +499,9 @@
             background: white;
             color: var(--dark-pink);
             border: 1px solid var(--border-pink);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 13px;
             font-weight: 700;
             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
             display: inline-flex;
@@ -517,13 +516,13 @@
             font-size: 14px;
         }
 
-        /* --- CÁC NÚT BẤM PHỤ TRỢ --- */
+        /* --- NÚT BẤM VÀ ĐỒNG BỘ MÀU TẠI FORM --- */
         .btn-preview-grey {
             background-color: var(--grey-btn);
             color: var(--grey-icon);
             border: none;
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -534,7 +533,7 @@
         }
 
         .btn-preview-grey:hover {
-            background-color: #cbd5e1;
+            background-color: #e2e8f0;
             color: #334155;
             transform: scale(1.05);
         }
@@ -545,18 +544,19 @@
             fill: currentColor;
         }
 
+        /* Nút LƯU CARD sửa lại đồng bộ màu sắc website */
         .btn-submit-pink-float {
             flex: 1;
-            background: linear-gradient(135deg, #ffe6ea 0%, #fbcfe8 100%);
-            color: #9f1239;
-            border: 2px solid #f472b6;
-            padding: 14px 24px;
-            border-radius: 30px;
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff758c 100%);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 35px;
             font-size: 16px;
             font-weight: 800;
             letter-spacing: 0.5px;
             cursor: pointer;
-            box-shadow: 0 6px 18px rgba(244, 114, 182, 0.35), 0 3px 0 #ec4899;
+            box-shadow: 0 8px 22px rgba(255, 77, 109, 0.35), 0 3px 0 #c9184a;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
@@ -565,9 +565,8 @@
         }
 
         .btn-submit-pink-float:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 9px 22px rgba(244, 114, 182, 0.45), 0 4px 0 #ec4899;
-            background: linear-gradient(135deg, #ffd1dc 0%, #f9a8d4 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.45), 0 4px 0 #c9184a;
         }
 
         /* --- FULLSCREEN MODAL --- */
@@ -575,7 +574,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: white; /* Toàn màn hình trắng tinh tế */
+            background-color: white;
             z-index: 10000;
             overflow-y: auto;
         }
@@ -584,21 +583,19 @@
             max-width: 750px;
             margin: 0 auto;
             min-height: 100vh;
-            background: white;
             display: flex;
             flex-direction: column;
         }
 
         .modal-header-bar {
-            background: white;
             padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--light-pink);
             position: sticky;
             top: 0;
             z-index: 50;
+            background: transparent;
         }
 
         .modal-title-text {
@@ -608,8 +605,9 @@
         }
 
         .close-fullscreen-btn {
-            background: var(--light-pink);
-            border: none;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-pink);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -617,6 +615,10 @@
             color: var(--dark-pink);
             cursor: pointer;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
         }
 
         .fullscreen-body {
@@ -625,20 +627,20 @@
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 8px;
             color: var(--text-dark);
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 16px;
+            padding: 13px 16px;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
             outline: none;
@@ -656,18 +658,18 @@
             min-height: 100px;
         }
 
-        /* Khung ảnh Avatar Creator: hình chữ nhật, không chữ hướng dẫn */
+        /* Khung ảnh Avatar Creator dạng chữ nhật không có chữ */
         .img-preview-box-rect {
-            width: 150px;
-            height: 200px;
-            border-radius: 14px;
+            width: 160px;
+            height: 220px;
+            border-radius: 16px;
             border: 2px dashed var(--primary-pink);
             background: var(--card-pink-default);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin: 10px auto 0 auto;
+            margin: 8px auto 0 auto;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
@@ -680,18 +682,18 @@
 
         /* --- XEM CHI TIẾT CARD MODAL --- */
         .detail-avatar-rect {
-            width: 180px;
-            height: 240px;
-            border-radius: 18px;
+            width: 220px;
+            height: 300px;
+            border-radius: 20px;
             object-fit: cover;
             border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-            margin: -70px auto 18px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            margin: 10px auto 20px auto;
             display: block;
         }
 
         .detail-name {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
             color: var(--dark-pink);
             text-align: center;
@@ -699,15 +701,16 @@
         }
 
         .detail-bio {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             color: var(--text-dark);
             text-align: center;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
             white-space: pre-line;
-            background: #fafafa;
-            padding: 18px;
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 18px 22px;
+            border-radius: 18px;
             border: 1px solid var(--border-pink);
         }
 
@@ -717,7 +720,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-align: center;
         }
 
@@ -809,9 +812,9 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm kiếm theo Tên Creator hoặc Thể loại..." oninput="handleSearch()">
         </div>
 
-        <!-- Nút Add Creator to, nổi bật -->
+        <!-- Nút Add Creator / Sửa Card (Không chứa icon khi sửa card) -->
         <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">
-            <span>✨</span> Add Creator
+            Add Creator
         </button>
     </header>
 
@@ -824,7 +827,7 @@
     <!-- ================= MODAL: TẠO / SỬA CREATOR (TOÀN MÀN HÌNH) ================= -->
     <div id="creatorModal" class="fullscreen-modal">
         <div class="modal-content-container">
-            <div class="modal-header-bar">
+            <div class="modal-header-bar" style="border-bottom: 1px solid var(--light-pink);">
                 <span class="modal-title-text" id="formTitle">Tạo Card Creator</span>
                 <button class="close-fullscreen-btn" onclick="closeCreatorModal()">&times;</button>
             </div>
@@ -832,9 +835,9 @@
             <div class="fullscreen-body">
                 <form id="creatorForm" onsubmit="submitCreator(event)">
 
-                    <!-- Avatar chữ nhật, không chứa chữ -->
+                    <!-- Avatar chuẩn nhãn không chữ -->
                     <div class="form-group" style="text-align: center;">
-                        <label>Ảnh Avatar Creator (Hình chữ nhật) *</label>
+                        <label>Avatar *</label>
                         <input type="file" id="avatarFile" accept="image/*" onchange="previewImage(event)" style="display: none;">
                         <div class="img-preview-box-rect" onclick="document.getElementById('avatarFile').click()">
                             <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; object-fit: cover;">
@@ -842,17 +845,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Tên Creator *</label>
+                        <label>Tên creator *</label>
                         <input type="text" id="creatorName" class="form-control" placeholder="Nhập tên hiển thị của bạn" required>
                     </div>
 
                     <div class="form-group">
-                        <label>Bio (Mô tả ngắn - Tùy chọn)</label>
+                        <label>Bio (Tiểu sử/Mô tả ngắn)</label>
                         <textarea id="creatorBio" class="form-control" placeholder="Giới thiệu phong cách, sở thích hoặc câu nói tâm đắc..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label>Thông tin liên hệ (Bắt buộc ít nhất 1) *</label>
+                        <label>Thông tin liên hệ *</label>
                         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                             <select id="contactPlatformSelect" class="form-control" style="width: 145px;" onchange="handlePlatformChange()">
                                 <option value="facebook">Facebook</option>
@@ -864,22 +867,22 @@
                             </select>
                             <input type="text" id="contactCustomNameInput" class="form-control" placeholder="Tên (VD: Zalo)" style="display:none; width: 130px;">
                             <input type="url" id="contactUrlInput" class="form-control" placeholder="https://...">
-                            <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 16px; border-radius: 10px; font-weight: 600; cursor: pointer;" onclick="addContact()">Thêm</button>
+                            <button type="button" style="background: var(--dark-pink); color: white; border: none; padding: 0 18px; border-radius: 10px; font-weight: 700; cursor: pointer;" onclick="addContact()">Thêm</button>
                         </div>
                         <div class="genre-box-wrapper" id="contactChipsWrapper"></div>
                     </div>
 
                     <div class="form-group">
-                        <label>Thể loại hay tạo (Nhấn Enter hoặc bấm Thêm để tạo hộp Hashtag)</label>
+                        <label>Thể loại</label>
                         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-                            <input type="text" id="genreInput" class="form-control" placeholder="Ví dụ: Roleplay, Xuyên Không..." onkeypress="handleGenreKeyPress(event)">
-                            <button type="button" style="background: var(--primary-pink); color: white; border: none; padding: 0 16px; border-radius: 10px; font-weight: 600; cursor: pointer;" onclick="addGenreFromInput()">Thêm</button>
+                            <input type="text" id="genreInput" class="form-control" placeholder="Nhập thể loại (VD: Roleplay, Xuyên Không...)" onkeypress="handleGenreKeyPress(event)">
+                            <button type="button" style="background: var(--dark-pink); color: white; border: none; padding: 0 18px; border-radius: 10px; font-weight: 700; cursor: pointer;" onclick="addGenreFromInput()">Thêm</button>
                         </div>
                         <div class="genre-box-wrapper" id="genreChipsWrapper"></div>
                     </div>
 
                     <div class="form-group">
-                        <label>Bảng màu nền Card Creator</label>
+                        <label>Bảng màu nền</label>
                         <div class="color-palette-container" id="colorPalette">
                             <div class="color-option active" style="background: #fff0f3;" onclick="selectColor('#fff0f3', this)" title="Hồng nhạt"></div>
                             <div class="color-option" style="background: #f0f9ff;" onclick="selectColor('#f0f9ff', this)" title="Xanh dương nhạt"></div>
@@ -903,12 +906,13 @@
                             <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
                         </button>
                         
-                        <button type="submit" class="btn-submit-pink-float" id="submitBtn">✨ LƯU CARD CREATOR</button>
+                        <!-- Nút LƯU CARD đồng bộ màu sắc website -->
+                        <button type="submit" class="btn-submit-pink-float" id="submitBtn">LƯU CARD CREATOR</button>
                     </div>
 
                     <div id="previewCardSection" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--border-pink);">
                         <div class="detail-section-title" style="margin-bottom: 12px;">XEM TRƯỚC CARD TRÊN TRANG CHỦ</div>
-                        <div id="previewCardBox" style="max-width: 280px; margin: 0 auto;"></div>
+                        <div id="previewCardBox" style="max-width: 320px; margin: 0 auto;"></div>
                     </div>
 
                 </form>
@@ -916,34 +920,47 @@
         </div>
     </div>
 
-    <!-- ================= MODAL: CHI TIẾT CARD CREATOR (TOÀN MÀN HÌNH) ================= -->
-    <div id="creatorDetailModal" class="fullscreen-modal">
-        <div class="modal-content-container">
-            <div class="modal-header-bar" id="detailHeaderBg" style="height: 110px; border: none;">
+    <!-- ================= MODAL: CHI TIẾT CARD CREATOR (SỬ DỤNG MÀU NỀN CỦA CARD, CÓ NÚT 3 CHẤM) ================= -->
+    <div id="creatorDetailModal" class="fullscreen-modal" style="background-color: var(--card-pink-default);">
+        <div class="modal-content-container" style="position: relative;">
+            
+            <!-- Nút ba chấm phía trên cùng góc phải màn hình chi tiết -->
+            <button class="card-menu-btn" style="top: 20px; right: 70px;" onclick="event.stopPropagation(); toggleDetailMenu()">⋮</button>
+            <div class="card-dropdown-menu" id="detailDropdownMenu" style="top: 65px; right: 70px;">
+                <div class="card-dropdown-item" onclick="copyCurrentProfileLink()">🔗 Chia sẻ link</div>
+                <div id="detailMenuDynamicLinks"></div>
+            </div>
+
+            <div class="modal-header-bar">
                 <div></div>
                 <button class="close-fullscreen-btn" onclick="closeDetailModal()">&times;</button>
             </div>
 
             <div class="fullscreen-body" style="padding-top: 0;">
+                <!-- 1. Ảnh Avatar (Hình chữ nhật hiển thị trọn vẹn ở trên cùng) -->
                 <img id="detailAvatar" class="detail-avatar-rect" src="" alt="Avatar">
+                
+                <!-- 2. Tên -->
                 <div id="detailName" class="detail-name"></div>
+                
+                <!-- 3. Bio -->
                 <div id="detailBio" class="detail-bio"></div>
 
-                <div class="detail-section-title">THỂ LOẠI TẠO DỰNG</div>
+                <!-- 4. Thể loại -->
+                <div class="detail-section-title">THỂ LOẠI</div>
                 <div class="genre-box-wrapper" id="detailGenres" style="justify-content: center; margin-bottom: 25px;"></div>
 
-                <div class="detail-section-title">LIÊN HỆ & DỰ ÁN</div>
+                <!-- 5. Thông tin liên hệ -->
+                <div class="detail-section-title">THÔNG TIN LIÊN HỆ</div>
                 <div id="detailContacts" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px;"></div>
-
-                <button class="btn-create-main" style="width: 100%; border-radius: 16px; padding: 15px;" onclick="copyCurrentProfileLink()">🔗 Sao chép Link Profile</button>
             </div>
         </div>
     </div>
 
     <!-- ================= MODAL: ĐỔI MẬT KHẨU ================= -->
     <div id="changePasswordModal" class="fullscreen-modal" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
-        <div class="modal-content-container" style="max-width: 420px; min-height: auto; margin: 80px auto; border-radius: 24px; overflow: hidden;">
-            <div class="modal-header-bar" style="position: static;">
+        <div class="modal-content-container" style="max-width: 420px; min-height: auto; margin: 80px auto; border-radius: 24px; overflow: hidden; background: white;">
+            <div class="modal-header-bar" style="position: static; border-bottom: 1px solid var(--light-pink);">
                 <span class="modal-title-text">🔑 Đổi Mật Khẩu</span>
                 <button class="close-fullscreen-btn" onclick="closeChangePasswordModal()">&times;</button>
             </div>
@@ -982,7 +999,7 @@
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
-            toast.innerHTML = `<span>${type === 'success' ? '💖' : '🌸'}</span> ${message}`;
+            toast.innerHTML = `<span>${type === 'success' ? '🌸' : '💡'}</span> ${message}`;
             container.appendChild(toast);
             setTimeout(() => toast.remove(), 3000);
         }
@@ -1145,10 +1162,11 @@
 
             const btnMain = document.getElementById('btnMainAddCreator');
             if (myCreatorCard) {
-                btnMain.innerHTML = `<span>✏️</span> Sửa Card Creator`;
+                // Sửa card không chứa icon
+                btnMain.innerText = `Sửa Card Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(myCreatorCard.name);
             } else {
-                btnMain.innerHTML = `<span>✨</span> Add Creator`;
+                btnMain.innerText = `Add Creator`;
                 document.getElementById('headerUserAvatar').innerText = getEnglishInitial(currentUser.email);
             }
         }
@@ -1180,7 +1198,7 @@
             });
         }
 
-        // TẠO CARD CHỮ NHẬT NGOÀI TRANG CHỦ
+        // TẠO CARD TRÊN TRANG CHỦ
         function createCardBoxElement(creator) {
             const card = document.createElement('div');
             card.className = 'creator-card-box';
@@ -1192,7 +1210,7 @@
             card.innerHTML = `
                 <button class="card-menu-btn" onclick="event.stopPropagation(); toggleCardMenu('${creator.id}')">⋮</button>
                 <div class="card-dropdown-menu" id="card-menu-${creator.id}">
-                    <div class="card-dropdown-item" onclick="event.stopPropagation(); shareCreatorDirect('${creator.id}')">🔗 Sao chép link</div>
+                    <div class="card-dropdown-item" onclick="event.stopPropagation(); shareCreatorDirect('${creator.id}')">🔗 Chia sẻ link</div>
                     ${contacts.map(c => `
                         <div class="card-dropdown-item" onclick="event.stopPropagation(); window.open('${c.url}', '_blank')">
                             ${getPlatformIcon(c.platform)} Mở ${c.label}
@@ -1234,17 +1252,27 @@
             document.querySelectorAll('.card-dropdown-menu').forEach(m => m.style.display = 'none');
         }
 
-        // XEM CHI TIẾT CARD CREATOR
+        // XEM CHI TIẾT CARD CREATOR (BỐ CỤC CHUẨN, MÀU NỀN CỦA CARD, NÚT 3 CHẤM)
         function openCreatorDetailModal(creatorId) {
             const creator = allCreators.find(c => c.id == creatorId);
             if (!creator) return;
 
             currentViewingId = creator.id;
-            document.getElementById('detailHeaderBg').style.backgroundColor = creator.card_color || '#fff0f3';
+            const modal = document.getElementById('creatorDetailModal');
+            
+            // Thiết lập màu nền của modal là màu người tạo đã chọn
+            modal.style.backgroundColor = creator.card_color || '#fff0f3';
+
+            // 1. Avatar hình chữ nhật
             document.getElementById('detailAvatar').src = creator.avatar_url;
+            
+            // 2. Tên
             document.getElementById('detailName').innerText = creator.name;
+            
+            // 3. Bio
             document.getElementById('detailBio').innerText = creator.bio || "Chưa có lời giới thiệu.";
 
+            // 4. Thể loại
             const genresContainer = document.getElementById('detailGenres');
             genresContainer.innerHTML = '';
             const genresArr = creator.genres ? creator.genres.split(',').map(g => g.trim()).filter(g => g) : [];
@@ -1257,9 +1285,10 @@
                     genresContainer.appendChild(tagBox);
                 });
             } else {
-                genresContainer.innerHTML = '<span style="font-size: 12px; color: var(--text-muted);">Tự do</span>';
+                genresContainer.innerHTML = '<span style="font-size: 13px; color: var(--text-muted);">Tự do</span>';
             }
 
+            // 5. Thông tin liên hệ
             const contactsContainer = document.getElementById('detailContacts');
             contactsContainer.innerHTML = '';
             let contacts = [];
@@ -1276,11 +1305,25 @@
                 contactsContainer.appendChild(a);
             });
 
-            document.getElementById('creatorDetailModal').style.display = 'block';
+            // Cập nhật danh sách các nút mở link cho nút 3 chấm trong modal chi tiết
+            const menuLinks = document.getElementById('detailMenuDynamicLinks');
+            menuLinks.innerHTML = contacts.map(c => `
+                <div class="card-dropdown-item" onclick="window.open('${c.url}', '_blank')">
+                    ${getPlatformIcon(c.platform)} Mở ${c.label}
+                </div>
+            `).join('');
+
+            modal.style.display = 'block';
+        }
+
+        function toggleDetailMenu() {
+            const menu = document.getElementById('detailDropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
         function closeDetailModal() {
             document.getElementById('creatorDetailModal').style.display = 'none';
+            document.getElementById('detailDropdownMenu').style.display = 'none';
         }
 
         function copyCurrentProfileLink() {
@@ -1288,9 +1331,10 @@
             const shareUrl = `${window.location.origin}${window.location.pathname}?id=${currentViewingId}`;
             navigator.clipboard.writeText(shareUrl);
             showToast("Đã sao chép link profile!", "success");
+            document.getElementById('detailDropdownMenu').style.display = 'none';
         }
 
-        // QUẢN LÝ HASHTAG THỂ LOẠI (FORM)
+        // HASHTAG THỂ LOẠI (FORM)
         function handleGenreKeyPress(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -1453,8 +1497,8 @@
             }
 
             const name = document.getElementById('creatorName').value || "Tên Creator";
-            const bio = document.getElementById('creatorBio').value || "Lời giới thiệu xem trước...";
-            const avatarSrc = document.getElementById('avatarPreviewImg').src || "https://via.placeholder.com/150x200";
+            const bio = document.getElementById('creatorBio').value || "Mô tả xem trước...";
+            const avatarSrc = document.getElementById('avatarPreviewImg').src || "https://via.placeholder.com/160x220";
 
             const demoData = {
                 name: name,
@@ -1479,7 +1523,7 @@
                 return;
             }
 
-            btn.innerText = "⏳ ĐANG LƯU...";
+            btn.innerText = "ĐANG LƯU...";
             btn.disabled = true;
 
             try {
@@ -1493,8 +1537,8 @@
                     const { data: publicUrlData } = supabaseClient.storage.from('avatars').getPublicUrl(fileName);
                     avatarUrl = publicUrlData.publicUrl;
                 } else if(!myCreatorCard) {
-                    showToast("Vui lòng chọn ảnh Avatar hình chữ nhật!");
-                    btn.innerText = "✨ LƯU CARD CREATOR";
+                    showToast("Vui lòng chọn ảnh Avatar!");
+                    btn.innerText = "LƯU CARD CREATOR";
                     btn.disabled = false;
                     return;
                 }
@@ -1522,7 +1566,7 @@
             } catch (error) {
                 showToast("Lỗi: " + error.message);
             } finally {
-                btn.innerText = "✨ LƯU CARD CREATOR";
+                btn.innerText = "LƯU CARD CREATOR";
                 btn.disabled = false;
             }
         }
