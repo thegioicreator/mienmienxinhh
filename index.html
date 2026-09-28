@@ -88,13 +88,14 @@
             to { opacity: 0; transform: translateY(-20px); }
         }
 
-        /* --- AUTH SCREEN --- */
+        /* --- AUTH SCREEN OVERLAY --- */
         #authOverlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: var(--bg-main);
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(4px);
             z-index: 20000;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -106,9 +107,27 @@
             width: 100%;
             max-width: 420px;
             border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 10px 30px rgba(255, 143, 163, 0.2);
+            padding: 35px 25px 30px 25px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
             text-align: center;
+            position: relative;
+        }
+
+        .auth-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .auth-close-btn:hover {
+            color: var(--dark-pink);
         }
 
         .auth-title {
@@ -161,6 +180,7 @@
             right: 25px;
         }
 
+        /* Nút user/login trên Header - Màu xám tối giản khi chưa đăng nhập */
         .user-avatar-btn {
             width: 46px;
             height: 46px;
@@ -174,13 +194,27 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 143, 163, 0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             transition: all 0.2s ease;
             text-transform: uppercase;
             user-select: none;
         }
 
-        .user-avatar-btn:hover {
+        .user-avatar-btn.guest {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+            color: #64748b;
+            box-shadow: none;
+        }
+
+        .user-avatar-btn.guest:hover {
+            background-color: #e2e8f0;
+            border-color: #94a3b8;
+            color: #334155;
+            transform: scale(1.05);
+        }
+
+        .user-avatar-btn:not(.guest):hover {
             transform: scale(1.08);
             background-color: var(--light-pink);
             border-color: var(--primary-pink);
@@ -437,6 +471,35 @@
             background: var(--light-pink);
         }
 
+        /* --- HASHTAG THỂ LOẠI --- */
+        .genre-box-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .genre-box-chip {
+            background: white;
+            color: var(--dark-pink);
+            border: 1px solid var(--border-pink);
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .genre-box-chip .remove-tag {
+            cursor: pointer;
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
         /* --- BẢNG MÀU --- */
         .color-palette-container {
             display: flex;
@@ -485,35 +548,6 @@
             width: 60px; height: 60px;
             opacity: 0;
             cursor: pointer;
-        }
-
-        /* --- HASHTAG THỂ LOẠI --- */
-        .genre-box-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .genre-box-chip {
-            background: white;
-            color: var(--dark-pink);
-            border: 1px solid var(--border-pink);
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 700;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .genre-box-chip .remove-tag {
-            cursor: pointer;
-            color: #ef4444;
-            font-weight: bold;
-            font-size: 14px;
         }
 
         /* --- NÚT BẤM VÀ FORM --- */
@@ -684,15 +718,17 @@
             object-fit: cover;
         }
 
-        /* --- CHI TIẾT CARD MODAL & WIDGET NHẠC --- */
+        /* --- CHI TIẾT CARD MODAL & NẮN LẠI TỈ LỆ ẢNH CÂN BẰNG --- */
         .detail-avatar-rect {
-            width: 180px;
-            height: 240px;
-            border-radius: 18px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            max-height: 280px;
+            border-radius: 20px;
             object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 10px auto 18px auto;
+            border: 2px solid var(--border-pink);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            margin: 0 0 20px 0;
             display: block;
         }
 
@@ -701,7 +737,7 @@
             font-weight: 800;
             color: var(--dark-pink);
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .detail-bio {
@@ -711,11 +747,12 @@
             text-align: center;
             margin-bottom: 22px;
             white-space: pre-line;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             padding: 16px 20px;
             border-radius: 16px;
             border: 1px solid var(--border-pink);
+            width: 100%;
         }
 
         .detail-note-box {
@@ -728,6 +765,7 @@
             border-radius: 8px;
             margin-bottom: 22px;
             white-space: pre-line;
+            width: 100%;
         }
 
         .detail-section-title {
@@ -740,7 +778,7 @@
             text-align: center;
         }
 
-        /* Nút bật/tắt nhạc nền góc màn hình khi xem Card */
+        /* Nút phát nhạc nền */
         .music-widget-btn {
             position: fixed;
             bottom: 24px;
@@ -781,6 +819,7 @@
             .user-profile-bar { top: 18px; right: 15px; }
             .btn-create-main { padding: 14px 38px; font-size: 17px; }
             main { padding: 15px 10px; }
+            .detail-avatar-rect { max-height: 220px; }
         }
     </style>
 </head>
@@ -796,13 +835,16 @@
         <span id="musicIcon">🎵</span> <span id="musicText">Đang phát nhạc</span>
     </button>
 
-    <!-- MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
+    <!-- MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ (MODAL OVERLAY) -->
     <div id="authOverlay">
         <div class="auth-card">
+            <button class="auth-close-btn" onclick="closeAuthOverlay()">&times;</button>
+
+            <!-- ĐĂNG NHẬP -->
             <div id="loginSection">
-                <div style="font-size: 40px; margin-bottom: 8px;">🌸</div>
+                <div style="font-size: 38px; margin-bottom: 6px;">🌸</div>
                 <h2 class="auth-title">Đăng Nhập Creator</h2>
-                <p class="auth-subtitle">Chào mừng bạn quay trở lại với Thế Giới Creator</p>
+                <p class="auth-subtitle">Đăng nhập để khởi tạo hoặc chỉnh sửa Card Creator của bạn</p>
                 
                 <div class="form-group" style="text-align: left;">
                     <label>Email *</label>
@@ -820,8 +862,9 @@
                 </p>
             </div>
 
+            <!-- ĐĂNG KÝ -->
             <div id="signupSection" style="display: none;">
-                <div style="font-size: 40px; margin-bottom: 8px;">✨</div>
+                <div style="font-size: 38px; margin-bottom: 6px;">✨</div>
                 <h2 class="auth-title">Đăng Ký Tài Khoản</h2>
                 <p class="auth-subtitle">Tạo tài khoản để sở hữu Card Creator của riêng bạn</p>
                 
@@ -850,7 +893,10 @@
     <!-- HEADER -->
     <header>
         <div class="user-profile-bar">
-            <button class="user-avatar-btn" id="headerUserAvatar" onclick="toggleUserMenu(event)" title="Tài khoản Creator">C</button>
+            <!-- Icon tài khoản (Nếu chưa đăng nhập sẽ có giao diện Khách màu xám) -->
+            <button class="user-avatar-btn guest" id="headerUserAvatar" onclick="handleUserAvatarClick(event)" title="Đăng nhập / Đăng ký">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </button>
             
             <div class="user-dropdown-menu" id="userMenuDropdown">
                 <div class="user-dropdown-item" onclick="handleMenuEditCard()">
@@ -871,7 +917,7 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm kiếm theo Tên Creator hoặc Thể loại..." oninput="handleSearch()">
         </div>
 
-        <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">
+        <button class="btn-create-main" id="btnMainAddCreator" onclick="handleAddCreatorClick()">
             ✨ Add Creator
         </button>
     </header>
@@ -914,7 +960,7 @@
                         <textarea id="creatorBio" class="form-control" placeholder="Giới thiệu phong cách, sở thích hoặc câu nói tâm đắc..."></textarea>
                     </div>
 
-                    <!-- 4. Nhạc nền (TÍNH NĂNG MỚI BỔ SUNG) -->
+                    <!-- 4. Nhạc nền -->
                     <div class="form-group">
                         <label>🎵 Link Nhạc nền (YouTube / MP3)</label>
                         <input type="url" id="creatorMusicUrl" class="form-control" placeholder="Dán link YouTube (VD: https://youtu.be/...) hoặc link file .mp3">
@@ -1012,6 +1058,7 @@
             </div>
 
             <div class="fullscreen-body" style="padding-top: 0;">
+                <!-- Ánh đại diện thiết kế chữ nhật cân bằng với khung Bio -->
                 <img id="detailAvatar" class="detail-avatar-rect" src="" alt="Avatar">
                 
                 <div id="detailName" class="detail-name"></div>
@@ -1070,7 +1117,7 @@
         let selectedCardColor = '#fff0f3';
         let currentViewingId = null;
 
-        // Biến điều khiển trình phát nhạc
+        // Trình phát nhạc
         let currentAudioObject = null;
         let isAudioPlaying = false;
 
@@ -1110,7 +1157,6 @@
             return `rgb(${r}, ${g}, ${b})`;
         }
 
-        // Tách lấy ID video từ link YouTube bất kỳ
         function extractYouTubeId(url) {
             if (!url) return null;
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
@@ -1118,22 +1164,19 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        /* --- BỘ PHÁT VÀ DỪNG NHẠC NỀN --- */
+        /* --- PHÁT NHẠC NỀN --- */
         function playBackgroundMusic(musicUrl) {
             stopBackgroundMusic();
             if (!musicUrl || !musicUrl.trim()) return;
 
             const musicContainer = document.getElementById('musicPlayerContainer');
-            const musicBtn = document.getElementById('musicWidgetBtn');
             const ytId = extractYouTubeId(musicUrl);
 
             if (ytId) {
-                // Nhúng YouTube Iframe tự động phát
                 musicContainer.innerHTML = `<iframe id="ytAudioIframe" width="0" height="0" src="https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&loop=1&playlist=${ytId}" frameborder="0" allow="autoplay"></iframe>`;
                 isAudioPlaying = true;
                 updateMusicWidgetUI(true);
             } else {
-                // Phát từ link MP3 trực tiếp
                 try {
                     currentAudioObject = new Audio(musicUrl.trim());
                     currentAudioObject.loop = true;
@@ -1141,11 +1184,10 @@
                         isAudioPlaying = true;
                         updateMusicWidgetUI(true);
                     }).catch(e => {
-                        console.log("Audio play error:", e);
                         updateMusicWidgetUI(false);
                     });
                 } catch(e) {
-                    console.log("Audio creation error:", e);
+                    console.log("Audio error:", e);
                 }
             }
         }
@@ -1164,21 +1206,13 @@
             const iframe = document.getElementById('ytAudioIframe');
             
             if (isAudioPlaying) {
-                if (iframe) {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                }
-                if (currentAudioObject) {
-                    currentAudioObject.pause();
-                }
+                if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                if (currentAudioObject) currentAudioObject.pause();
                 isAudioPlaying = false;
                 updateMusicWidgetUI(false);
             } else {
-                if (iframe) {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                }
-                if (currentAudioObject) {
-                    currentAudioObject.play();
-                }
+                if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                if (currentAudioObject) currentAudioObject.play();
                 isAudioPlaying = true;
                 updateMusicWidgetUI(true);
             }
@@ -1198,24 +1232,31 @@
             }
         }
 
+        // === KHỞI TẠO TRANG ===
         document.addEventListener("DOMContentLoaded", async () => {
+            // Luôn tải toàn bộ danh sách card công khai trước
+            await loadAllCreators();
+
+            // Kiểm tra trạng thái đăng nhập
             const { data: { session } } = await supabaseClient.auth.getSession();
             if (session) {
                 currentUser = session.user;
-                document.getElementById('authOverlay').style.display = 'none';
-                await initData();
+                await checkUserCard();
             } else {
-                document.getElementById('authOverlay').style.display = 'flex';
+                currentUser = null;
+                updateUserHeaderUI();
             }
 
+            // Lắng nghe thay đổi auth
             supabaseClient.auth.onAuthStateChange(async (event, session) => {
                 if (session) {
                     currentUser = session.user;
-                    document.getElementById('authOverlay').style.display = 'none';
-                    await initData();
+                    closeAuthOverlay();
+                    await checkUserCard();
                 } else {
                     currentUser = null;
-                    document.getElementById('authOverlay').style.display = 'flex';
+                    myCreatorCard = null;
+                    updateUserHeaderUI();
                 }
             });
 
@@ -1231,6 +1272,7 @@
                 }
             });
 
+            // Nếu truyền ID trực tiếp qua đường dẫn link
             const urlParams = new URLSearchParams(window.location.search);
             const creatorId = urlParams.get('id');
             if (creatorId) {
@@ -1238,8 +1280,56 @@
             }
         });
 
-        function toggleUserMenu(e) {
+        /* --- ĐIỀU HƯỚNG VÀ XỬ LÝ AUTH KHÁCH/USER --- */
+        function openAuthOverlay() {
+            document.getElementById('authOverlay').style.display = 'flex';
+        }
+
+        function closeAuthOverlay() {
+            document.getElementById('authOverlay').style.display = 'none';
+        }
+
+        function handleUserAvatarClick(e) {
             e.stopPropagation();
+            if (!currentUser) {
+                openAuthOverlay();
+            } else {
+                toggleUserMenu(e);
+            }
+        }
+
+        function handleAddCreatorClick() {
+            if (!currentUser) {
+                showToast("Vui lòng đăng nhập/đăng ký để tạo hoặc chỉnh sửa Card!");
+                openAuthOverlay();
+            } else {
+                openCreatorModal();
+            }
+        }
+
+        function updateUserHeaderUI() {
+            const avatarBtn = document.getElementById('headerUserAvatar');
+            const btnMain = document.getElementById('btnMainAddCreator');
+
+            if (currentUser) {
+                avatarBtn.classList.remove('guest');
+                avatarBtn.title = "Tài khoản Creator";
+                if (myCreatorCard) {
+                    btnMain.innerText = `Sửa Card Creator`;
+                    avatarBtn.innerText = getEnglishInitial(myCreatorCard.name);
+                } else {
+                    btnMain.innerText = `Add Creator`;
+                    avatarBtn.innerText = getEnglishInitial(currentUser.email);
+                }
+            } else {
+                avatarBtn.classList.add('guest');
+                avatarBtn.title = "Đăng nhập / Đăng ký";
+                avatarBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
+                btnMain.innerText = `Add Creator`;
+            }
+        }
+
+        function toggleUserMenu(e) {
             const menu = document.getElementById('userMenuDropdown');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
@@ -1302,6 +1392,7 @@
                 showToast("Đăng nhập thất bại: " + error.message);
             } else {
                 showToast("Đăng nhập thành công!", "success");
+                closeAuthOverlay();
             }
         }
 
@@ -1325,6 +1416,7 @@
                 showToast("Lỗi đăng ký: " + error.message);
             } else if (data.session) {
                 showToast("Đăng ký & Đăng nhập thành công!", "success");
+                closeAuthOverlay();
             } else {
                 showToast("Đăng ký thành công! Bạn có thể đăng nhập ngay.", "success");
                 switchAuthMode('login');
@@ -1337,24 +1429,11 @@
             showToast("Đã đăng xuất!", "success");
         }
 
-        async function initData() {
-            await loadAllCreators();
-            await checkUserCard();
-        }
-
         async function checkUserCard() {
             if (!currentUser) return;
             const { data } = await supabaseClient.from('creators').select('*').eq('user_id', currentUser.id).maybeSingle();
             myCreatorCard = data;
-
-            const btnMain = document.getElementById('btnMainAddCreator');
-            if (myCreatorCard) {
-                btnMain.innerText = `✏️ Sửa Card Creator`;
-                document.getElementById('headerUserAvatar').innerText = getEnglishInitial(myCreatorCard.name);
-            } else {
-                btnMain.innerText = `✨ Add Creator`;
-                document.getElementById('headerUserAvatar').innerText = getEnglishInitial(currentUser.email);
-            }
+            updateUserHeaderUI();
         }
 
         async function loadAllCreators() {
@@ -1499,7 +1578,7 @@
 
             modal.style.display = 'block';
 
-            // KÍCH HOẠT PHÁT NHẠC NỀN KHI MỞ CARD
+            // KÍCH HOẠT NHẠC NỀN
             playBackgroundMusic(creator.music_url);
         }
 
@@ -1512,8 +1591,6 @@
         function closeDetailModal() {
             document.getElementById('creatorDetailModal').style.display = 'none';
             document.getElementById('detailDropdownMenu').style.display = 'none';
-            
-            // DỪNG NHẠC NỀN KHI ĐÓNG MODAL
             stopBackgroundMusic();
         }
 
@@ -1640,11 +1717,6 @@
         }
 
         function openCreatorModal() {
-            if (!currentUser) {
-                showToast("Vui lòng đăng nhập trước!");
-                return;
-            }
-
             document.getElementById('creatorForm').reset();
             document.getElementById('previewCardSection').style.display = 'none';
 
@@ -1755,7 +1827,8 @@
                 }
 
                 closeCreatorModal();
-                await initData();
+                await checkUserCard();
+                await loadAllCreators();
             } catch (error) {
                 showToast("Lỗi: " + error.message);
             } finally {
