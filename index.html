@@ -227,7 +227,7 @@
             background-color: #fee2e2;
         }
 
-        /* --- SEARCH & NÚT ADD CREATOR (ĐÃ TĂNG KÍCH THƯỚC) --- */
+        /* --- SEARCH & NÚT ADD CREATOR --- */
         .search-container {
             max-width: 520px;
             margin: 0 auto 18px auto;
@@ -249,7 +249,6 @@
             box-shadow: 0 0 0 4px rgba(255, 143, 163, 0.2);
         }
 
-        /* Nút Add Creator/Sửa Card được làm to, rõ ràng và bắt mắt */
         .btn-create-main {
             background: linear-gradient(135deg, #ff4d6d 0%, #ff758c 100%);
             color: white;
@@ -274,7 +273,7 @@
             box-shadow: 0 14px 32px rgba(255, 77, 109, 0.5), 0 6px 0 #c9184a;
         }
 
-        /* --- MAIN & GRID CARD CREATOR (TỐI ƯU LỀ VÀ KÍCH THƯỚC TRÁNH BỊ XA LỀ) --- */
+        /* --- MAIN & GRID CARD CREATOR --- */
         main {
             width: 100%;
             max-width: 1320px;
@@ -292,7 +291,7 @@
 
         .creator-card-box {
             width: 100%;
-            max-width: 330px; /* Đảm bảo Card không bị phình quá to */
+            max-width: 330px;
             justify-self: center;
             height: 440px;
             border-radius: 20px;
@@ -314,7 +313,6 @@
             border-color: var(--primary-pink);
         }
 
-        /* Nút ba chấm góc phải card */
         .card-menu-btn {
             position: absolute;
             top: 12px;
@@ -342,7 +340,6 @@
             transform: scale(1.1);
         }
 
-        /* Menu thả xuống từ nút ba chấm */
         .card-dropdown-menu {
             display: none;
             position: absolute;
@@ -374,7 +371,6 @@
             color: var(--dark-pink);
         }
 
-        /* Avatar dạng hình chữ nhật */
         .card-avatar-rect {
             width: 100%;
             height: 68%;
@@ -382,7 +378,6 @@
             background-color: #f1f5f9;
         }
 
-        /* Phần nội dung thông tin phía dưới card */
         .card-content-section {
             height: 32%;
             padding: 12px 16px;
@@ -442,7 +437,7 @@
             background: var(--light-pink);
         }
 
-        /* --- BẢNG MÀU & CHỌN MÀU TÙY CHỈNH --- */
+        /* --- BẢNG MÀU --- */
         .color-palette-container {
             display: flex;
             gap: 10px;
@@ -521,7 +516,7 @@
             font-size: 14px;
         }
 
-        /* --- NÚT BẤM VÀ ĐỒNG BỘ MÀU TẠI FORM --- */
+        /* --- NÚT BẤM VÀ FORM --- */
         .btn-preview-grey {
             background-color: var(--grey-btn);
             color: var(--grey-icon);
@@ -668,7 +663,6 @@
             min-height: 90px;
         }
 
-        /* Khung ảnh Avatar Creator dạng chữ nhật vừa phải */
         .img-preview-box-rect {
             width: 150px;
             height: 200px;
@@ -690,7 +684,7 @@
             object-fit: cover;
         }
 
-        /* --- XEM CHI TIẾT CARD MODAL --- */
+        /* --- CHI TIẾT CARD MODAL & WIDGET NHẠC --- */
         .detail-avatar-rect {
             width: 180px;
             height: 240px;
@@ -746,6 +740,42 @@
             text-align: center;
         }
 
+        /* Nút bật/tắt nhạc nền góc màn hình khi xem Card */
+        .music-widget-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--primary-pink);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--dark-pink);
+            box-shadow: 0 8px 22px rgba(255, 77, 109, 0.3);
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .music-widget-btn:hover {
+            transform: scale(1.06);
+            background: white;
+        }
+
+        .music-widget-btn.playing #musicIcon {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
         @media (max-width: 600px) {
             h1 { font-size: 20px; padding-right: 35px; }
             .user-profile-bar { top: 18px; right: 15px; }
@@ -756,13 +786,19 @@
 </head>
 <body>
 
-    <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toast-container"></div>
 
-    <!-- ================= MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ ================= -->
+    <!-- KHUNG CHỨA NHẠC NỀN ẨN -->
+    <div id="musicPlayerContainer" style="display: none;"></div>
+
+    <!-- NÚT BẤM BẬT/TẮT NHẠC NỀN -->
+    <button id="musicWidgetBtn" class="music-widget-btn" style="display: none;" onclick="toggleAudioState()">
+        <span id="musicIcon">🎵</span> <span id="musicText">Đang phát nhạc</span>
+    </button>
+
+    <!-- MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
     <div id="authOverlay">
         <div class="auth-card">
-            <!-- Form Đăng Nhập -->
             <div id="loginSection">
                 <div style="font-size: 40px; margin-bottom: 8px;">🌸</div>
                 <h2 class="auth-title">Đăng Nhập Creator</h2>
@@ -784,7 +820,6 @@
                 </p>
             </div>
 
-            <!-- Form Đăng Ký -->
             <div id="signupSection" style="display: none;">
                 <div style="font-size: 40px; margin-bottom: 8px;">✨</div>
                 <h2 class="auth-title">Đăng Ký Tài Khoản</h2>
@@ -812,7 +847,7 @@
         </div>
     </div>
 
-    <!-- HEADER & TRANG CHỦ -->
+    <!-- HEADER -->
     <header>
         <div class="user-profile-bar">
             <button class="user-avatar-btn" id="headerUserAvatar" onclick="toggleUserMenu(event)" title="Tài khoản Creator">C</button>
@@ -836,7 +871,6 @@
             <input type="text" id="searchInput" class="search-input" placeholder="🔍 Tìm kiếm theo Tên Creator hoặc Thể loại..." oninput="handleSearch()">
         </div>
 
-        <!-- NÚT ĐÃ ĐƯỢC TĂNG KÍCH THƯỚC NỔI BẬT -->
         <button class="btn-create-main" id="btnMainAddCreator" onclick="openCreatorModal()">
             ✨ Add Creator
         </button>
@@ -848,7 +882,7 @@
         </div>
     </main>
 
-    <!-- ================= MODAL: TẠO / SỬA CREATOR ================= -->
+    <!-- MODAL: TẠO / SỬA CREATOR -->
     <div id="creatorModal" class="fullscreen-modal">
         <div class="modal-content-container">
             <div class="modal-header-bar" style="border-bottom: 1px solid var(--light-pink);">
@@ -874,13 +908,20 @@
                         <input type="text" id="creatorName" class="form-control" placeholder="Nhập tên hiển thị của bạn" required>
                     </div>
 
-                    <!-- 3. Bio (Tiểu sử/Mô tả ngắn) -->
+                    <!-- 3. Bio -->
                     <div class="form-group">
                         <label>Bio (Tiểu sử/Mô tả ngắn)</label>
                         <textarea id="creatorBio" class="form-control" placeholder="Giới thiệu phong cách, sở thích hoặc câu nói tâm đắc..."></textarea>
                     </div>
 
-                    <!-- 4. Thể loại -->
+                    <!-- 4. Nhạc nền (TÍNH NĂNG MỚI BỔ SUNG) -->
+                    <div class="form-group">
+                        <label>🎵 Link Nhạc nền (YouTube / MP3)</label>
+                        <input type="url" id="creatorMusicUrl" class="form-control" placeholder="Dán link YouTube (VD: https://youtu.be/...) hoặc link file .mp3">
+                        <small style="color: var(--text-muted); font-size: 11.5px; margin-top: 4px; display: block;">Nhạc sẽ tự động phát khi mọi người nhấn mở Card của bạn.</small>
+                    </div>
+
+                    <!-- 5. Thể loại -->
                     <div class="form-group">
                         <label>Thể loại</label>
                         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
@@ -890,13 +931,13 @@
                         <div class="genre-box-wrapper" id="genreChipsWrapper"></div>
                     </div>
 
-                    <!-- 5. Creator Note -->
+                    <!-- 6. Creator Note -->
                     <div class="form-group">
                         <label>Creator Note</label>
                         <textarea id="creatorNote" class="form-control" placeholder="Ghi chú thêm về lịch làm việc, quy định đặt hàng, lưu ý dành cho người xem..."></textarea>
                     </div>
 
-                    <!-- 6. Thông tin liên hệ -->
+                    <!-- 7. Thông tin liên hệ -->
                     <div class="form-group">
                         <label>Thông tin liên hệ *</label>
                         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
@@ -915,7 +956,7 @@
                         <div class="genre-box-wrapper" id="contactChipsWrapper"></div>
                     </div>
 
-                    <!-- 7. Bảng màu nền -->
+                    <!-- 8. Bảng màu nền -->
                     <div class="form-group">
                         <label>Bảng màu nền</label>
                         <div class="color-palette-container" id="colorPalette">
@@ -954,11 +995,10 @@
         </div>
     </div>
 
-    <!-- ================= MODAL: CHI TIẾT CARD CREATOR ================= -->
+    <!-- MODAL: CHI TIẾT CARD CREATOR -->
     <div id="creatorDetailModal" class="fullscreen-modal">
         <div class="modal-content-container" style="position: relative;">
             
-            <!-- THANH ĐIỀU HƯỚNG TRÊN CÙNG -->
             <div class="modal-header-bar">
                 <button class="icon-top-btn" onclick="closeDetailModal()" title="Quay lại">←</button>
                 
@@ -972,33 +1012,27 @@
             </div>
 
             <div class="fullscreen-body" style="padding-top: 0;">
-                <!-- 1. Avatar -->
                 <img id="detailAvatar" class="detail-avatar-rect" src="" alt="Avatar">
                 
-                <!-- 2. Tên creator -->
                 <div id="detailName" class="detail-name"></div>
                 
-                <!-- 3. Bio -->
                 <div id="detailBio" class="detail-bio"></div>
 
-                <!-- 4. Thể loại -->
                 <div class="detail-section-title">THỂ LOẠI</div>
                 <div class="genre-box-wrapper" id="detailGenres" style="justify-content: center; margin-bottom: 22px;"></div>
 
-                <!-- 5. Creator Note -->
                 <div id="detailNoteWrapper" style="display: none;">
                     <div class="detail-section-title">CREATOR NOTE</div>
                     <div id="detailNote" class="detail-note-box"></div>
                 </div>
 
-                <!-- 6. Thông tin liên hệ -->
                 <div class="detail-section-title">THÔNG TIN LIÊN HỆ</div>
                 <div id="detailContacts" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 30px;"></div>
             </div>
         </div>
     </div>
 
-    <!-- ================= MODAL: ĐỔI MẬT KHẨU ================= -->
+    <!-- MODAL: ĐỔI MẬT KHẨU -->
     <div id="changePasswordModal" class="fullscreen-modal" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
         <div class="modal-content-container" style="max-width: 420px; min-height: auto; margin: 80px auto; border-radius: 24px; overflow: hidden; background: white;">
             <div class="modal-header-bar" style="position: static; border-bottom: 1px solid var(--light-pink);">
@@ -1036,6 +1070,10 @@
         let selectedCardColor = '#fff0f3';
         let currentViewingId = null;
 
+        // Biến điều khiển trình phát nhạc
+        let currentAudioObject = null;
+        let isAudioPlaying = false;
+
         function showToast(message, type = 'error') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -1070,6 +1108,94 @@
             b = Math.round(b * 0.15 + 255 * 0.85);
 
             return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Tách lấy ID video từ link YouTube bất kỳ
+        function extractYouTubeId(url) {
+            if (!url) return null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        /* --- BỘ PHÁT VÀ DỪNG NHẠC NỀN --- */
+        function playBackgroundMusic(musicUrl) {
+            stopBackgroundMusic();
+            if (!musicUrl || !musicUrl.trim()) return;
+
+            const musicContainer = document.getElementById('musicPlayerContainer');
+            const musicBtn = document.getElementById('musicWidgetBtn');
+            const ytId = extractYouTubeId(musicUrl);
+
+            if (ytId) {
+                // Nhúng YouTube Iframe tự động phát
+                musicContainer.innerHTML = `<iframe id="ytAudioIframe" width="0" height="0" src="https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&loop=1&playlist=${ytId}" frameborder="0" allow="autoplay"></iframe>`;
+                isAudioPlaying = true;
+                updateMusicWidgetUI(true);
+            } else {
+                // Phát từ link MP3 trực tiếp
+                try {
+                    currentAudioObject = new Audio(musicUrl.trim());
+                    currentAudioObject.loop = true;
+                    currentAudioObject.play().then(() => {
+                        isAudioPlaying = true;
+                        updateMusicWidgetUI(true);
+                    }).catch(e => {
+                        console.log("Audio play error:", e);
+                        updateMusicWidgetUI(false);
+                    });
+                } catch(e) {
+                    console.log("Audio creation error:", e);
+                }
+            }
+        }
+
+        function stopBackgroundMusic() {
+            document.getElementById('musicPlayerContainer').innerHTML = '';
+            if (currentAudioObject) {
+                currentAudioObject.pause();
+                currentAudioObject = null;
+            }
+            isAudioPlaying = false;
+            document.getElementById('musicWidgetBtn').style.display = 'none';
+        }
+
+        function toggleAudioState() {
+            const iframe = document.getElementById('ytAudioIframe');
+            
+            if (isAudioPlaying) {
+                if (iframe) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+                if (currentAudioObject) {
+                    currentAudioObject.pause();
+                }
+                isAudioPlaying = false;
+                updateMusicWidgetUI(false);
+            } else {
+                if (iframe) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }
+                if (currentAudioObject) {
+                    currentAudioObject.play();
+                }
+                isAudioPlaying = true;
+                updateMusicWidgetUI(true);
+            }
+        }
+
+        function updateMusicWidgetUI(playing) {
+            const btn = document.getElementById('musicWidgetBtn');
+            const text = document.getElementById('musicText');
+            btn.style.display = 'flex';
+            
+            if (playing) {
+                btn.classList.add('playing');
+                text.innerText = "Đang phát nhạc";
+            } else {
+                btn.classList.remove('playing');
+                text.innerText = "Tạm dừng nhạc";
+            }
         }
 
         document.addEventListener("DOMContentLoaded", async () => {
@@ -1372,6 +1498,9 @@
             `).join('');
 
             modal.style.display = 'block';
+
+            // KÍCH HOẠT PHÁT NHẠC NỀN KHI MỞ CARD
+            playBackgroundMusic(creator.music_url);
         }
 
         function toggleDetailMenu(e) {
@@ -1383,6 +1512,9 @@
         function closeDetailModal() {
             document.getElementById('creatorDetailModal').style.display = 'none';
             document.getElementById('detailDropdownMenu').style.display = 'none';
+            
+            // DỪNG NHẠC NỀN KHI ĐÓNG MODAL
+            stopBackgroundMusic();
         }
 
         function copyCurrentProfileLink() {
@@ -1521,6 +1653,7 @@
                 document.getElementById('creatorName').value = myCreatorCard.name;
                 document.getElementById('creatorBio').value = myCreatorCard.bio || "";
                 document.getElementById('creatorNote').value = myCreatorCard.creator_note || "";
+                document.getElementById('creatorMusicUrl').value = myCreatorCard.music_url || "";
                 
                 selectedCardColor = myCreatorCard.card_color || '#fff0f3';
 
@@ -1606,6 +1739,7 @@
                     name: document.getElementById('creatorName').value,
                     bio: document.getElementById('creatorBio').value,
                     creator_note: document.getElementById('creatorNote').value,
+                    music_url: document.getElementById('creatorMusicUrl').value.trim(),
                     contacts: JSON.stringify(contactList),
                     genres: genreList.join(', '),
                     card_color: selectedCardColor,
